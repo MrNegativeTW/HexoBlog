@@ -77,18 +77,18 @@
 
 
 
-<meta name="description" content="IntArray 若是直接 print 會得一串類似這樣的字串 [I@4783da3f">
+<meta name="description" content="IntArray 若是直接 print 會得到一串類似這樣的字串 [I@4783da3f">
 <meta name="keywords" content="txw">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Kotlin 筆記 - 印出 IntArray 的內容">
 <meta property="og:url" content="https://mrnegativetw.github.io/Kotlin-筆記/Kotlin筆記-印出IntArray的內容/index.html">
 <meta property="og:site_name" content="TxW Tech Studio">
-<meta property="og:description" content="IntArray 若是直接 print 會得一串類似這樣的字串 [I@4783da3f">
+<meta property="og:description" content="IntArray 若是直接 print 會得到一串類似這樣的字串 [I@4783da3f">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2020-03-06T14:33:33.175Z">
+<meta property="og:updated_time" content="2020-03-06T14:46:03.330Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kotlin 筆記 - 印出 IntArray 的內容">
-<meta name="twitter:description" content="IntArray 若是直接 print 會得一串類似這樣的字串 [I@4783da3f">
+<meta name="twitter:description" content="IntArray 若是直接 print 會得到一串類似這樣的字串 [I@4783da3f">
 
 
 
@@ -339,8 +339,11 @@
       
 
       
-        <p>IntArray 若是直接 print 會得一串類似這樣的字串 <code>[I@4783da3f</code><br><a id="more"></a></p>
-<h1 id="問題範例"><a href="#問題範例" class="headerlink" title="問題範例"></a>問題範例</h1><h1 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h1><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">println(list.contentToString())</span><br></pre></td></tr></table></figure>
+        <p>IntArray 若是直接 print 會得到一串類似這樣的字串 <code>[I@4783da3f</code><br><a id="more"></a></p>
+<h1 id="問題範例"><a href="#問題範例" class="headerlink" title="問題範例"></a>問題範例</h1><p>IntArray 若直接使用 print() 印出，會產生一坨奇怪的東西。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> list = intArrayOf(<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>)</span><br><span class="line">println(list)</span><br><span class="line"><span class="comment">// 印出 I@[4783da3f</span></span><br></pre></td></tr></table></figure>
+<h1 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h1><p>這時只要加上 <code>contentToString()</code> 即可將 IntArray 正常印出。<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">println(list.contentToString())</span><br></pre></td></tr></table></figure></p>
+
       
     </div>
     
