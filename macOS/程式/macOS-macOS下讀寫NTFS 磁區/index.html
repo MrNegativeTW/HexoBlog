@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-tw">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="macOS 預設情況下，是無法對 NTFS 磁區進行寫入的，只能有讀取功能，而且有些檔案還會呈現灰色無法拉出使用…">
+<meta name="keywords" content="txw">
+<meta property="og:type" content="article">
+<meta property="og:title" content="macOS 下讀寫 NTFS 磁區">
+<meta property="og:url" content="https://mrnegativetw.github.io/macOS/程式/macOS-macOS下讀寫NTFS 磁區/index.html">
+<meta property="og:site_name" content="TxW Tech Studio">
+<meta property="og:description" content="macOS 預設情況下，是無法對 NTFS 磁區進行寫入的，只能有讀取功能，而且有些檔案還會呈現灰色無法拉出使用…">
+<meta property="og:locale" content="zh-tw">
+<meta property="og:updated_time" content="2020-03-06T14:26:34.908Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="macOS 下讀寫 NTFS 磁區">
+<meta name="twitter:description" content="macOS 預設情況下，是無法對 NTFS 磁區進行寫入的，只能有讀取功能，而且有些檔案還會呈現灰色無法拉出使用…">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://mrnegativetw.github.io/macOS/程式/macOS-macOS下讀寫NTFS 磁區/">
+
+
+
+
+
+  <title>macOS 下讀寫 NTFS 磁區 | TxW Tech Studio</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-127718395-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">TxW Tech Studio</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">什麼都寫 什麼都不奇怪</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分類
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            文章總覽
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://mrnegativetw.github.io/macOS/程式/macOS-macOS下讀寫NTFS 磁區/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Trevor Wu">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TxW Tech Studio">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">macOS 下讀寫 NTFS 磁區</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-01-17T22:00:00+08:00">
+                2019-01-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/macOS/" itemprop="url" rel="index">
+                    <span itemprop="name">macOS</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/macOS/程式/" itemprop="url" rel="index">
+                    <span itemprop="name">程式</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>macOS 預設情況下，是無法對 NTFS 磁區進行寫入的，只能有讀取功能，而且有些檔案還會呈現灰色無法拉出使用…<br><a id="more"></a></p>
+<h1 id="解決辦法"><a href="#解決辦法" class="headerlink" title="解決辦法"></a>解決辦法</h1><p>安裝可以讀寫的程式，有兩個方案<br>方案一：Microsoft NTFS for Mac by Paragon Software<br>方案二：Mounty for NTFS</p>
+<h2 id="方案一"><a href="#方案一" class="headerlink" title="方案一"></a>方案一</h2><p><code>付費方案</code><br>​<div class="note info"><p>官網：<a href="https://www.paragon-software.com/home/ntfs-mac/​" target="_blank" rel="noopener">https://www.paragon-software.com/home/ntfs-mac/​</a> </p></div><br>付錢解決，有錢人的做法，我們 窮人 開源節流的人是不會這樣的，不過經過試用，穩！</p>
+<h2 id="方案二"><a href="#方案二" class="headerlink" title="方案二"></a>方案二</h2><p><code>免費方案</code><br><div class="note success"><p>​ 官網：<a href="https://mounty.app/​" target="_blank" rel="noopener">https://mounty.app/​</a> </p></div></p>
+<p>其實，macOS 內建是支援 NTFS 讀寫的，不過基於某種原因（不穩定，我猜）被鎖起來了，這套工具只是幫你把內建的功能打開，使用時還是小心為上</p>
+<p>原本沒這套工具又要使用內建的讀寫時，需要手動重新掛載磁區，有夠麻煩， 所以這套工具就被開發出來，按一下即可自動幫你重新掛載</p>
+<h1 id="方案二的已知問題"><a href="#方案二的已知問題" class="headerlink" title="方案二的已知問題"></a>方案二的已知問題</h1><h2 id="無法掛載"><a href="#無法掛載" class="headerlink" title="無法掛載"></a>無法掛載</h2><p>問題：隨身碟插入後無法掛載 或 電腦意外斷電後無法掛載磁區<br>解法：插上 Windows 的電腦並安全移除；重啟進入 Windows 然後再重啟進入 macOS<br>說明：請謹記，任何 NTFS 格式的裝置在前一台電腦必須是安全的被移除（也就是按下退出），否則都會無法掛載</p>
+<h2 id="檔案不見了"><a href="#檔案不見了" class="headerlink" title="檔案不見了"></a>檔案不見了</h2><p>問題：對 NTFS 磁區進行操作時，突然間整個 資料夾 / 檔案 全部消失了<br>解法：</p>
+<ol>
+<li>開啟 Windows 並對磁區進行掃描與修復</li>
+<li>如果你手邊沒有 Windows，可以使用 <a href="https://www.paragon-software.com/home/hdm-mac/" target="_blank" rel="noopener">Paraogn Harddisk Manager</a> 或 <a href="https://www.tuxera.com/products/tuxera-ntfs-for-mac/" target="_blank" rel="noopener">Tuxera Disk Manager</a> 進行處理</li>
+</ol>
+<h2 id="檔案變灰色"><a href="#檔案變灰色" class="headerlink" title="檔案變灰色"></a>檔案變灰色</h2><p>問題：打開磁區一看，哇，檔案都是灰色的，複製也複製不出來，完全無法操作<br>解法：用終端機導航到檔案位置，並輸入 ls -l@ <filename>查看檔案額外的屬性，<br>然後輸入  xattr -d com-apple.<attribute> <filename> 移除這些屬性，<br>例如：xattr -d com.apple.FinderInfo testfile.txt<br>說明：據軟體說明頁面指出，這是因為檔案有一些延伸屬性，想情請見 <a href="https://developer.apple.com/library/archive/documentation/Darwin/Reference/ManPages/man1/xattr.1.html" target="_blank" rel="noopener">the Manpage of xattr</a> （不過頁面已被移除）</filename></attribute></filename></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/macOS/問題/macOS-解決BeardedSpice失效無法控制Chrome音樂問題/" rel="next" title="解決 BeardedSpice 失效無法控制 Chrome 音樂問題">
+                <i class="fa fa-chevron-left"></i> 解決 BeardedSpice 失效無法控制 Chrome 音樂問題
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/修電腦/修電腦-2019WD硬碟RMA維修經驗/" rel="prev" title="2019 WD 硬碟 RMA 維修經驗">
+                2019 WD 硬碟 RMA 維修經驗 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            關於作者
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Trevor Wu">
+            
+              <p class="site-author-name" itemprop="name">Trevor Wu</p>
+              <p class="site-description motion-element" itemprop="description">I'm afraid of HARDWARE. Don't scare me.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">文章</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">分類</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/MrNegativeTW" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.instagram.com/mrnegativetw" target="_blank" title="Instagram">
+                      
+                        <i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#解決辦法"><span class="nav-number">1.</span> <span class="nav-text">解決辦法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方案一"><span class="nav-number">1.1.</span> <span class="nav-text">方案一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方案二"><span class="nav-number">1.2.</span> <span class="nav-text">方案二</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方案二的已知問題"><span class="nav-number">2.</span> <span class="nav-text">方案二的已知問題</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#無法掛載"><span class="nav-number">2.1.</span> <span class="nav-text">無法掛載</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#檔案不見了"><span class="nav-number">2.2.</span> <span class="nav-text">檔案不見了</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#檔案變灰色"><span class="nav-number">2.3.</span> <span class="nav-text">檔案變灰色</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Trevor Wu</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

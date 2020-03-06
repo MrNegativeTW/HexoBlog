@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-tw">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="這幾天回去寫我放在 Gitbook 上的「Ryzen 安裝黑蘋果教學」，一時興起想說找找看有沒有 Gitbook 提供的流量分析，結果不得了，觀看次數竟然破千了，但是流量分析看起來不是很專業，所以乾脆把 Google (Google：閃開，讓專業的來！) 分析加進來。">
+<meta name="keywords" content="txw">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何在 Gitbook 中加入 Google Analytics 進行流量追蹤">
+<meta property="og:url" content="https://mrnegativetw.github.io/我也不知道怎麼分類/如何在Gitbook中加入GoogleAnalytics進行流量追蹤/index.html">
+<meta property="og:site_name" content="TxW Tech Studio">
+<meta property="og:description" content="這幾天回去寫我放在 Gitbook 上的「Ryzen 安裝黑蘋果教學」，一時興起想說找找看有沒有 Gitbook 提供的流量分析，結果不得了，觀看次數竟然破千了，但是流量分析看起來不是很專業，所以乾脆把 Google (Google：閃開，讓專業的來！) 分析加進來。">
+<meta property="og:locale" content="zh-tw">
+<meta property="og:image" content="https://pbz6ha.bn.files.1drv.com/y4m8cjM1YlpxzHeS7O6IrikWxQYnXZroWDXN0MAPNA0L1XmWGhKHO7fo7TzrXIBZ2OwuwVGRFAZBosTpyfSK5hBVz5oFD_QD8cX2BqSMCTr3PqCDToQ-5gFjdsXY9JdA8BYpZxs1c5Vo4vI1tiyB8947GC2sODqdSo8XPuk15guMG-lqdp-EUd4HEX2p9beISRAL_SFD3PQkI8skvJhE2C7BA">
+<meta property="og:image" content="https://pbbfpw.bn.files.1drv.com/y4mnrwyiSZq7R-OfmnLE6lK9KmNKrzGDOvXBLNJeEHjcARxtMuN4yuLIkVj63vmaGNatFcdOMM0xweWohyfnpBPd7Yc2D1Fjt3dfm-G_Hb7o1GGjBHI2ull-zTWGFxrKF95tZG4nSePuisOSXmLy9tdItDSGFJWSZJez3nBWxf8UYii0Rxo1YSsM1Eg0vwxMc77gKANGzNJ0NUIxfuwtbvviA">
+<meta property="og:image" content="https://pbyc2a.bn.files.1drv.com/y4mG_7PBIuTTVyyYG1rO8LcXsm42BzvjMEisteJNgD9EyV6TcyJXS1iEKLV25ctoWUSaSxIQzLAWuJQqplRBceaO90GmfmIRA3tMrrJbx-AZgXhWUcb6e9NABydp8Wc0upxOAU3MtVdyg__pfhAkhEhtK5S70hmLJD1bBsKt4woiHFx8PGdj6tOxlLShwUAjGTE_IqH8Q5aOT8V1YIRqIjUlg">
+<meta property="og:image" content="https://pbabyw.bn.files.1drv.com/y4mxEvomV_XJ6adyt-jaR2Ylmn46ALqC-9YBROHD1178s0b3mKWln7_WUhXKCzpc1GFKxQR8huEz-N_N8r6esulPcz8ehLZhlgMfJ6zB_4M0t_BCZeaWUescdBx8ERs3-MpCoLRO9-ewieDCo42g2AMEFb1PYl76AXiDOOIw9UiTTQV9MzM1dEQwKchNqk_qX7RBE0XspV-v1IT1gleYXErgg">
+<meta property="og:image" content="https://pbbm7g.bn.files.1drv.com/y4mwT2Tin0W8OvTjUyqOEtabtO3yUrvxBCRXpKU3mmNNaf_JZGcMu2M1QfWj-va-q85yZX03zK4mxsuM_Mls8pdlI-VVyblHLXDQzbMb2oqubNTMMfX2xyfc8LcI5Q-J7KiWLSeH5j6oghAszUyWpRSj8fwkeQOPaqmeCaWpmr2XrfSquUrMAU7blt6PoWYQc02qlcEd49cfOtgyTWSpP9w8g">
+<meta property="og:image" content="https://pbzleg.bn.files.1drv.com/y4mmv6lgKpFUqzatpxQrZypKDwzyTjPEz2xxQK51cn2r_r1F5OfkHT6wx1o7MSAURffT2uAZ3hfB1Qm537dPaR3SjchFUpauYcRRGkz__6nJgcuqTKVcZPOab0vx6pthcq0ORSosnsGfA6jlvEAph5GpHZxhU9M4sGa853-FkuFtfSnA-fN4QsfR2zwSyhMPbsU37prvUtUagvTHhw7ZRxEwA">
+<meta property="og:updated_time" content="2020-03-06T14:26:34.909Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="如何在 Gitbook 中加入 Google Analytics 進行流量追蹤">
+<meta name="twitter:description" content="這幾天回去寫我放在 Gitbook 上的「Ryzen 安裝黑蘋果教學」，一時興起想說找找看有沒有 Gitbook 提供的流量分析，結果不得了，觀看次數竟然破千了，但是流量分析看起來不是很專業，所以乾脆把 Google (Google：閃開，讓專業的來！) 分析加進來。">
+<meta name="twitter:image" content="https://pbz6ha.bn.files.1drv.com/y4m8cjM1YlpxzHeS7O6IrikWxQYnXZroWDXN0MAPNA0L1XmWGhKHO7fo7TzrXIBZ2OwuwVGRFAZBosTpyfSK5hBVz5oFD_QD8cX2BqSMCTr3PqCDToQ-5gFjdsXY9JdA8BYpZxs1c5Vo4vI1tiyB8947GC2sODqdSo8XPuk15guMG-lqdp-EUd4HEX2p9beISRAL_SFD3PQkI8skvJhE2C7BA">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://mrnegativetw.github.io/我也不知道怎麼分類/如何在Gitbook中加入GoogleAnalytics進行流量追蹤/">
+
+
+
+
+
+  <title>如何在 Gitbook 中加入 Google Analytics 進行流量追蹤 | TxW Tech Studio</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-127718395-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">TxW Tech Studio</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">什麼都寫 什麼都不奇怪</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分類
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            文章總覽
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://mrnegativetw.github.io/我也不知道怎麼分類/如何在Gitbook中加入GoogleAnalytics進行流量追蹤/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Trevor Wu">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TxW Tech Studio">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">如何在 Gitbook 中加入 Google Analytics 進行流量追蹤</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-10-18T10:00:00+08:00">
+                2018-10-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/我也不知道怎麼分類/" itemprop="url" rel="index">
+                    <span itemprop="name">我也不知道怎麼分類</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>這幾天回去寫我放在 Gitbook 上的「<a href="https://mtwstudio.gitbook.io/ryzentosh/" target="_blank" rel="noopener">Ryzen 安裝黑蘋果教學</a>」，一時興起想說找找看有沒有 Gitbook 提供的流量分析，結果不得了，觀看次數竟然破千了，但是流量分析看起來不是很專業，所以乾脆把 Google (Google：閃開，讓專業的來！) 分析加進來。</p>
+<a id="more"></a>
+<h1 id="Google-Analytics-設定"><a href="#Google-Analytics-設定" class="headerlink" title="Google Analytics 設定"></a>Google Analytics 設定</h1><p>首先前往 <a href="https://analytics.google.com/analytics/web/#/" target="_blank" rel="noopener">Google Analytics</a>，接著選擇左下角的管理，並 <strong>建立帳戶</strong><br><img src="https://pbz6ha.bn.files.1drv.com/y4m8cjM1YlpxzHeS7O6IrikWxQYnXZroWDXN0MAPNA0L1XmWGhKHO7fo7TzrXIBZ2OwuwVGRFAZBosTpyfSK5hBVz5oFD_QD8cX2BqSMCTr3PqCDToQ-5gFjdsXY9JdA8BYpZxs1c5Vo4vI1tiyB8947GC2sODqdSo8XPuk15guMG-lqdp-EUd4HEX2p9beISRAL_SFD3PQkI8skvJhE2C7BA" alt="gga_1"></p>
+<p>接著輸入網站的基本資料，並同意所有使用規則<br><img src="https://pbbfpw.bn.files.1drv.com/y4mnrwyiSZq7R-OfmnLE6lK9KmNKrzGDOvXBLNJeEHjcARxtMuN4yuLIkVj63vmaGNatFcdOMM0xweWohyfnpBPd7Yc2D1Fjt3dfm-G_Hb7o1GGjBHI2ull-zTWGFxrKF95tZG4nSePuisOSXmLy9tdItDSGFJWSZJez3nBWxf8UYii0Rxo1YSsM1Eg0vwxMc77gKANGzNJ0NUIxfuwtbvviA" alt="gga_2"></p>
+<p>完成後通常會跳出 <strong>追蹤ID</strong>，如果不小心關掉的話，還可以從 <strong>追蹤資訊</strong> 中的 <strong>追蹤程式碼</strong> 找到<br><img src="https://pbyc2a.bn.files.1drv.com/y4mG_7PBIuTTVyyYG1rO8LcXsm42BzvjMEisteJNgD9EyV6TcyJXS1iEKLV25ctoWUSaSxIQzLAWuJQqplRBceaO90GmfmIRA3tMrrJbx-AZgXhWUcb6e9NABydp8Wc0upxOAU3MtVdyg__pfhAkhEhtK5S70hmLJD1bBsKt4woiHFx8PGdj6tOxlLShwUAjGTE_IqH8Q5aOT8V1YIRqIjUlg" alt="gga_3"></p>
+<p><img src="https://pbabyw.bn.files.1drv.com/y4mxEvomV_XJ6adyt-jaR2Ylmn46ALqC-9YBROHD1178s0b3mKWln7_WUhXKCzpc1GFKxQR8huEz-N_N8r6esulPcz8ehLZhlgMfJ6zB_4M0t_BCZeaWUescdBx8ERs3-MpCoLRO9-ewieDCo42g2AMEFb1PYl76AXiDOOIw9UiTTQV9MzM1dEQwKchNqk_qX7RBE0XspV-v1IT1gleYXErgg" alt="gga_4"></p>
+<h1 id="Gitbook-設定"><a href="#Gitbook-設定" class="headerlink" title="Gitbook 設定"></a>Gitbook 設定</h1><p>完成「專業的」設定後，就可以進到 <a href="https://www.gitbook.com" target="_blank" rel="noopener">Gitbook.com</a>開始設定啦，沒意外的話會自動導到自己的 Space，這時找到自己的公開書本並按右上角的三個點選擇 <strong>Integrations</strong><br><img src="https://pbbm7g.bn.files.1drv.com/y4mwT2Tin0W8OvTjUyqOEtabtO3yUrvxBCRXpKU3mmNNaf_JZGcMu2M1QfWj-va-q85yZX03zK4mxsuM_Mls8pdlI-VVyblHLXDQzbMb2oqubNTMMfX2xyfc8LcI5Q-J7KiWLSeH5j6oghAszUyWpRSj8fwkeQOPaqmeCaWpmr2XrfSquUrMAU7blt6PoWYQc02qlcEd49cfOtgyTWSpP9w8g" alt="gga_5"></p>
+<p>接著將剛剛拿到的 <strong>追蹤ID</strong> 填入後，就可以馬上去 Google Analytics 看結果囉<br><img src="https://pbzleg.bn.files.1drv.com/y4mmv6lgKpFUqzatpxQrZypKDwzyTjPEz2xxQK51cn2r_r1F5OfkHT6wx1o7MSAURffT2uAZ3hfB1Qm537dPaR3SjchFUpauYcRRGkz__6nJgcuqTKVcZPOab0vx6pthcq0ORSosnsGfA6jlvEAph5GpHZxhU9M4sGa853-FkuFtfSnA-fN4QsfR2zwSyhMPbsU37prvUtUagvTHhw7ZRxEwA" alt="gga_6"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Python-3-筆記/Beautiful-Soup/Python3筆記-利用Requests與BeautifulSoup爬取需登入的ASPX頁面/" rel="next" title="Python 3 筆記 - 利用 Requests 與 Beautiful Soup 爬取需登入的 ASPX 頁面">
+                <i class="fa fa-chevron-left"></i> Python 3 筆記 - 利用 Requests 與 Beautiful Soup 爬取需登入的 ASPX 頁面
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/macOS/技巧/macOS-Terminal技巧-不用打指令也能去想去的資料夾/" rel="prev" title="Terminal 技巧 - 不用打指令也能去想去的資料夾">
+                Terminal 技巧 - 不用打指令也能去想去的資料夾 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            關於作者
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Trevor Wu">
+            
+              <p class="site-author-name" itemprop="name">Trevor Wu</p>
+              <p class="site-description motion-element" itemprop="description">I'm afraid of HARDWARE. Don't scare me.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">文章</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">分類</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/MrNegativeTW" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.instagram.com/mrnegativetw" target="_blank" title="Instagram">
+                      
+                        <i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Google-Analytics-設定"><span class="nav-number">1.</span> <span class="nav-text">Google Analytics 設定</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Gitbook-設定"><span class="nav-number">2.</span> <span class="nav-text">Gitbook 設定</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Trevor Wu</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

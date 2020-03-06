@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-tw">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前幾天在爬學校的考試系統，不過用 Requests 操作登入不管怎樣就是進不去，後來發現表單送出資料中還有三欄隱藏的神秘資訊，Google 後才發現，原來 ASPX 頁面要登入可不是單單打密碼這麼簡單，這篇文章就讓我們來教學如何爬 ASPX 頁面吧。">
+<meta name="keywords" content="txw">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python 3 筆記 - 利用 Requests 與 Beautiful Soup 爬取需登入的 ASPX 頁面">
+<meta property="og:url" content="https://mrnegativetw.github.io/Python-3-筆記/Beautiful-Soup/Python3筆記-利用Requests與BeautifulSoup爬取需登入的ASPX頁面/index.html">
+<meta property="og:site_name" content="TxW Tech Studio">
+<meta property="og:description" content="前幾天在爬學校的考試系統，不過用 Requests 操作登入不管怎樣就是進不去，後來發現表單送出資料中還有三欄隱藏的神秘資訊，Google 後才發現，原來 ASPX 頁面要登入可不是單單打密碼這麼簡單，這篇文章就讓我們來教學如何爬 ASPX 頁面吧。">
+<meta property="og:locale" content="zh-tw">
+<meta property="og:image" content="https://pbawbq.bn.files.1drv.com/y4maqvsowB2aEytjI1DRUnTAn2TqXudLfLtr-1nNqR5Tv1LzYAxWmlu24fprz10arGJJP1EZW12_HTkulFgONYrypCoMj071RscH7JdnopbMuAztlvtgRIhfuEE3y9g2POgA8mXKS8nZ63UstIGhJl6v1ZRN_PwmO6rjKP8mYZ_ql8frLq8plxJbrH89KOoGiYbZwlFfg-ExunQ9VbkT6W_Ew">
+<meta property="og:updated_time" content="2020-03-06T14:26:34.906Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python 3 筆記 - 利用 Requests 與 Beautiful Soup 爬取需登入的 ASPX 頁面">
+<meta name="twitter:description" content="前幾天在爬學校的考試系統，不過用 Requests 操作登入不管怎樣就是進不去，後來發現表單送出資料中還有三欄隱藏的神秘資訊，Google 後才發現，原來 ASPX 頁面要登入可不是單單打密碼這麼簡單，這篇文章就讓我們來教學如何爬 ASPX 頁面吧。">
+<meta name="twitter:image" content="https://pbawbq.bn.files.1drv.com/y4maqvsowB2aEytjI1DRUnTAn2TqXudLfLtr-1nNqR5Tv1LzYAxWmlu24fprz10arGJJP1EZW12_HTkulFgONYrypCoMj071RscH7JdnopbMuAztlvtgRIhfuEE3y9g2POgA8mXKS8nZ63UstIGhJl6v1ZRN_PwmO6rjKP8mYZ_ql8frLq8plxJbrH89KOoGiYbZwlFfg-ExunQ9VbkT6W_Ew">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://mrnegativetw.github.io/Python-3-筆記/Beautiful-Soup/Python3筆記-利用Requests與BeautifulSoup爬取需登入的ASPX頁面/">
+
+
+
+
+
+  <title>Python 3 筆記 - 利用 Requests 與 Beautiful Soup 爬取需登入的 ASPX 頁面 | TxW Tech Studio</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-127718395-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">TxW Tech Studio</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">什麼都寫 什麼都不奇怪</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分類
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            文章總覽
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://mrnegativetw.github.io/Python-3-筆記/Beautiful-Soup/Python3筆記-利用Requests與BeautifulSoup爬取需登入的ASPX頁面/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Trevor Wu">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TxW Tech Studio">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Python 3 筆記 - 利用 Requests 與 Beautiful Soup 爬取需登入的 ASPX 頁面</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-10-13T10:00:00+08:00">
+                2018-10-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python-3-筆記/" itemprop="url" rel="index">
+                    <span itemprop="name">Python 3 筆記</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python-3-筆記/Beautiful-Soup/" itemprop="url" rel="index">
+                    <span itemprop="name">Beautiful Soup</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>前幾天在爬學校的考試系統，不過用 Requests 操作登入不管怎樣就是進不去，後來發現表單送出資料中還有三欄隱藏的神秘資訊，Google 後才發現，原來 ASPX 頁面要登入可不是單單打密碼這麼簡單，這篇文章就讓我們來教學如何爬 ASPX 頁面吧。<br><a id="more"></a></p>
+<h1 id="隱藏資訊"><a href="#隱藏資訊" class="headerlink" title="隱藏資訊"></a>隱藏資訊</h1><p>首先我們要找到表單的隱藏資訊，使用 Chrome 打開登入頁面，並右鍵 &gt; 檢查，切換到 Network 頁面，接著，輸入 <strong>錯誤</strong> 的帳號密碼，並送出，送出後會發現旁邊的 Network 頁面多了一些紀錄資訊出來<br>圖中的 Form Data 欄位，就是我們登入所需要的所有資料啦<br><img src="https://pbawbq.bn.files.1drv.com/y4maqvsowB2aEytjI1DRUnTAn2TqXudLfLtr-1nNqR5Tv1LzYAxWmlu24fprz10arGJJP1EZW12_HTkulFgONYrypCoMj071RscH7JdnopbMuAztlvtgRIhfuEE3y9g2POgA8mXKS8nZ63UstIGhJl6v1ZRN_PwmO6rjKP8mYZ_ql8frLq8plxJbrH89KOoGiYbZwlFfg-ExunQ9VbkT6W_Ew" alt="requests_1"></p>
+<p>上圖以學校考試系統為例，表單的送出資訊還包含了<code>__VIEWSTATE</code><br><code>__VIEWSTATEGENERATOR</code> <code>__EVENTVALIDATION</code>，這三個隱藏資訊，拿到這些東西之後就可以準備繼續動工了</p>
+<h1 id="繼續動工"><a href="#繼續動工" class="headerlink" title="繼續動工"></a>繼續動工</h1><p>首先開頭我們先引入 BeautifulSoup 和 requests<br>我使用的版本為：Python 3.7、BeautifulSoup4</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> requests</span><br></pre></td></tr></table></figure>
+<p>接著是重點部分</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> requests.Session() <span class="keyword">as</span> s:</span><br><span class="line">	page = s.get(<span class="string">'https://portal.stust.edu.tw/examseat/login.aspx'</span>)</span><br><span class="line">	soup = BeautifulSoup(page.content, <span class="string">'lxml'</span>)</span><br><span class="line"></span><br><span class="line">	payload_loginPage = &#123;</span><br><span class="line">		<span class="string">'txtStud_No'</span>: <span class="string">'YOUR USERNAME'</span>,</span><br><span class="line">		<span class="string">'txtPasswd'</span>: <span class="string">'YOUR PASSWORD'</span>,</span><br><span class="line">		<span class="string">'Button1'</span>: <span class="string">'登入'</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	payload_loginPage[<span class="string">"__VIEWSTATE"</span>] = soup.select_one(<span class="string">"#__VIEWSTATE"</span>)[<span class="string">"value"</span>]</span><br><span class="line">	payload_loginPage[<span class="string">"__VIEWSTATEGENERATOR"</span>] = soup.select_one(<span class="string">"#__VIEWSTATEGENERATOR"</span>)[<span class="string">"value"</span>]</span><br><span class="line">	payload_loginPage[<span class="string">"__EVENTVALIDATION"</span>] = soup.select_one(<span class="string">"#__EVENTVALIDATION"</span>)[<span class="string">"value"</span>]</span><br><span class="line">	s.post(<span class="string">'https://portal.stust.edu.tw/examseat/login.aspx'</span>, data=payload_loginPage)</span><br></pre></td></tr></table></figure>
+<p>第 1 行：首先我們把 Requests 模組中的 session 功能叫出並簡稱為 <code>s</code><br>第 2 行：利用 HTTP Requests Methods 中的 GET 方法取得登入頁面，並存於 <code>page</code> 當中</p>
+<blockquote>
+<p>關於 HTTP Requests Methods，可以看這邊的說明 <a href="https://www.w3schools.com/tags/ref_httpmethods.asp" target="_blank" rel="noopener">英文版</a>、<a href="http://www.w3school.com.cn/tags/html_ref_httpmethods.asp" target="_blank" rel="noopener">中文版</a></p>
+</blockquote>
+<p>第 3 行：使用 Beautiful Soup 對 <code>page</code> 的內容(content) 進行處理<br>第 5-9 行：表單的可視化部分，冒號前方為表單欄位名稱，後方為欄位數值</p>
+<blockquote>
+<p><code>&#39;Button1&#39;: &#39;登入&#39;</code> 就是按下送出扭的概念</p>
+</blockquote>
+<p>第 11-13 行：自動帶入這一坨隱藏資訊的數值，<br>第 14 行：最後就是把上面一坨的資料用 POST 的方式送交到表單進行驗證囉</p>
+<h1 id="成功與否"><a href="#成功與否" class="headerlink" title="成功與否"></a>成功與否</h1><p>如何知道成功與否呢？<br>最簡單的方式就是透過印出下一頁的資料來確認，所以可在最後面加上<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">page = s.get(<span class="string">'https://portal.stust.edu.tw/examseat/Default.aspx'</span>)</span><br><span class="line">print(page.text)</span><br></pre></td></tr></table></figure></p>
+<p>第 1 行：取得下一頁<br>第 2 行：印出頁面原始碼</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Python-3-筆記/Python3筆記-自動安裝所需的Module/" rel="next" title="Python 3 筆記 - 自動安裝所需的 Module">
+                <i class="fa fa-chevron-left"></i> Python 3 筆記 - 自動安裝所需的 Module
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/我也不知道怎麼分類/如何在Gitbook中加入GoogleAnalytics進行流量追蹤/" rel="prev" title="如何在 Gitbook 中加入 Google Analytics 進行流量追蹤">
+                如何在 Gitbook 中加入 Google Analytics 進行流量追蹤 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            關於作者
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Trevor Wu">
+            
+              <p class="site-author-name" itemprop="name">Trevor Wu</p>
+              <p class="site-description motion-element" itemprop="description">I'm afraid of HARDWARE. Don't scare me.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">文章</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">分類</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/MrNegativeTW" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.instagram.com/mrnegativetw" target="_blank" title="Instagram">
+                      
+                        <i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#隱藏資訊"><span class="nav-number">1.</span> <span class="nav-text">隱藏資訊</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#繼續動工"><span class="nav-number">2.</span> <span class="nav-text">繼續動工</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#成功與否"><span class="nav-number">3.</span> <span class="nav-text">成功與否</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Trevor Wu</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
