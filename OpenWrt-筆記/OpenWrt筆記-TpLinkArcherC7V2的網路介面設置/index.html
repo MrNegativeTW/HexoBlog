@@ -77,22 +77,23 @@
 
 
 
-<meta name="description" content="總之 N 年前買的 M325 開始連點了，這已經不知道是第幾次復發了，乾脆趁機換一換微動，不過也沒研究，去電子材料行隨便問老闆歐姆龍的微動就買了。">
+<meta name="description" content="OpenWrt 刷上去興奮的開機了，結果換來的是網路無法聯外，僅能在本地自嗨，究竟是什麼問題呢？">
 <meta name="keywords" content="txw">
 <meta property="og:type" content="article">
-<meta property="og:title" content="羅技 M325 更換歐姆龍微動 D2F C-F-7N 實錄">
-<meta property="og:url" content="https://mrnegativetw.github.io/修電腦/修電腦-羅技M325更換歐姆龍微動D2FC-F-7N實錄/index.html">
+<meta property="og:title" content="OpenWrt 筆記 - TP-Link Archer C7 V2 網路介面設置">
+<meta property="og:url" content="https://mrnegativetw.github.io/OpenWrt-筆記/OpenWrt筆記-TpLinkArcherC7V2的網路介面設置/index.html">
 <meta property="og:site_name" content="TxW Tech Studio">
-<meta property="og:description" content="總之 N 年前買的 M325 開始連點了，這已經不知道是第幾次復發了，乾脆趁機換一換微動，不過也沒研究，去電子材料行隨便問老闆歐姆龍的微動就買了。">
+<meta property="og:description" content="OpenWrt 刷上去興奮的開機了，結果換來的是網路無法聯外，僅能在本地自嗨，究竟是什麼問題呢？">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:image" content="https://2cpxqa.bn.files.1drv.com/y4mPm9r00Dy4m21Tcyv8lzPcWpfq9ZH9YLcaf09ul8hyfQfJ_GvXHMfBsYjJ5PNsfifRWUHX2Ee6MtkfPqQJsf7OY-a2LTfZP5xiTHcjl3W3U2JQ311YErxUsuI2NzLqRr2kA7RzqFIsk1jQovTFWeKYkHVIpVZ-mhwe4kFo8K7NpQcci4r_9DdgP8KF4TSHOTg000GDy9B8POAtIs-jlBXxw">
-<meta property="og:image" content="https://fvt5aq.bn.files.1drv.com/y4mM7tTP3QRNYEQNWdcfwCQPjt9w50_4KSITuC46_h7Eaq3vVETZoSdDDrhpRkFQOVFKzl4Bz4u8_nC1DUrx_rH1rBZmbRaS5tEpIIwTdk8KilWf6LW2y7OpgXmDUkTgMBHeqRrHIpCgbr0RUI5DJzJ_9cs56NcvFfso2croT2gZ3igUSVw5BrbgXKQ1Pwti18EVywN0WfMld_9AD-VYEto6A">
-<meta property="og:image" content="https://2cq8mw.bn.files.1drv.com/y4m96NYgwS0WdBESUs6b8ZW7gXY-haNz4nFRoLZiMRw6tGZQpkO1j0Z7yYz1fdSDSempDrCeNDOlLSnwrJb8uUUP19BysGAgFh8Ht4bITjOgk8a3oPn6bVNI77UR9nmLpEGxqC9nRSk1fuwL0Ob-GMsQgx9BygEel5WGMm3IgjekpJzrxSQ0pnoA6F_EK1JRwvZnQdxQUHnGSLybHm7nq8fTA">
-<meta property="og:updated_time" content="2020-03-06T14:26:34.908Z">
+<meta property="og:image" content="https://okhzwa.bn.files.1drv.com/y4mZrbamB76IQh_xpRMoQV7d-963Un7V22QroYhfIxLP_aEEFmFGkjB3Upw6H-zqGEOCZJjNVrqkI2ubVaXBHHCiniaMM9Mrwwn_bApWmiNWogzsR3E0sPcuPyt9v2plE8AWVsq0h0GwSd-2QSlKpaLMeLgrkH-kg7g3xjZH7edxHlqoNzM7HUGuIt-E4FyTRpPhZmkwEsBpW3ugXr6wkTvBQ">
+<meta property="og:image" content="https://okf0nq.bn.files.1drv.com/y4mVmF4lH79vHg7WmXT1PJ4tuCUTRZxUc_jbzAzdKeWrKkd8fhCngqiMbqBr_eAWbrtkKVM8SUGgE_pomEfMTzBlGA9XMW1Q1lhzQeJFI0oIcS6dKB_ybUQvqUAb0M_ieL1KEktWQo0zXSBwAWuYeUuiszM1uaz9b4CGErkRx6lc8VY2RxDqi-SqenjKLeX2tPW1KF1bxjAhCVw1xWAj2XL1A">
+<meta property="og:image" content="https://okepta.bn.files.1drv.com/y4mW1YQx15uucGPF5TXSDZrMQiBh8CGieJqiYfUeJDOYllCfiGSITjaG0OxWjOuKae9lhevlcm6TzPD8v3yMoF1mCsgziYweFkB1YkonKGfcN2lJAXKvKUV-IsDDtzuiU8dSBjKy94jDHOzua5987pFcrwct1U7GojetwDI3DzBTL1p2tx6Z7ufBbZVAW8JEMg920jVgU5K-TW3GYH1sgfC4g">
+<meta property="og:image" content="https://okgj1w.bn.files.1drv.com/y4mABQouAKqyfSabiMbTVKD3aGfn6ekbiOtyt9B8NJSRkEbSwhj_-d0MOK1mvJ8cVk-TjnH_76Dev62wAPlHj209lsKHz90timxPI5Ks6E3LrRrYppdTBvUlNmATe-yDjF2t1P0DmF1Q_GIKYkI23dKhNlLPxG5aNSBLdJ-KcS2Pldp5E0JpgfnpEZMtGl_a2S36-DL6Voz8gRhLD-kphVxTQ">
+<meta property="og:updated_time" content="2020-03-07T15:18:49.615Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="羅技 M325 更換歐姆龍微動 D2F C-F-7N 實錄">
-<meta name="twitter:description" content="總之 N 年前買的 M325 開始連點了，這已經不知道是第幾次復發了，乾脆趁機換一換微動，不過也沒研究，去電子材料行隨便問老闆歐姆龍的微動就買了。">
-<meta name="twitter:image" content="https://2cpxqa.bn.files.1drv.com/y4mPm9r00Dy4m21Tcyv8lzPcWpfq9ZH9YLcaf09ul8hyfQfJ_GvXHMfBsYjJ5PNsfifRWUHX2Ee6MtkfPqQJsf7OY-a2LTfZP5xiTHcjl3W3U2JQ311YErxUsuI2NzLqRr2kA7RzqFIsk1jQovTFWeKYkHVIpVZ-mhwe4kFo8K7NpQcci4r_9DdgP8KF4TSHOTg000GDy9B8POAtIs-jlBXxw">
+<meta name="twitter:title" content="OpenWrt 筆記 - TP-Link Archer C7 V2 網路介面設置">
+<meta name="twitter:description" content="OpenWrt 刷上去興奮的開機了，結果換來的是網路無法聯外，僅能在本地自嗨，究竟是什麼問題呢？">
+<meta name="twitter:image" content="https://okhzwa.bn.files.1drv.com/y4mZrbamB76IQh_xpRMoQV7d-963Un7V22QroYhfIxLP_aEEFmFGkjB3Upw6H-zqGEOCZJjNVrqkI2ubVaXBHHCiniaMM9Mrwwn_bApWmiNWogzsR3E0sPcuPyt9v2plE8AWVsq0h0GwSd-2QSlKpaLMeLgrkH-kg7g3xjZH7edxHlqoNzM7HUGuIt-E4FyTRpPhZmkwEsBpW3ugXr6wkTvBQ">
 
 
 
@@ -122,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="https://mrnegativetw.github.io/修電腦/修電腦-羅技M325更換歐姆龍微動D2FC-F-7N實錄/">
+  <link rel="canonical" href="https://mrnegativetw.github.io/OpenWrt-筆記/OpenWrt筆記-TpLinkArcherC7V2的網路介面設置/">
 
 
 
 
 
-  <title>羅技 M325 更換歐姆龍微動 D2F C-F-7N 實錄 | TxW Tech Studio</title>
+  <title>OpenWrt 筆記 - TP-Link Archer C7 V2 網路介面設置 | TxW Tech Studio</title>
   
 
 
@@ -254,7 +255,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://mrnegativetw.github.io/修電腦/修電腦-羅技M325更換歐姆龍微動D2FC-F-7N實錄/">
+    <link itemprop="mainEntityOfPage" href="https://mrnegativetw.github.io/OpenWrt-筆記/OpenWrt筆記-TpLinkArcherC7V2的網路介面設置/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Trevor Wu">
@@ -271,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">羅技 M325 更換歐姆龍微動 D2F C-F-7N 實錄</h1>
+          <h1 class="post-title" itemprop="name headline">OpenWrt 筆記 - TP-Link Archer C7 V2 網路介面設置</h1>
         
 
         <div class="post-meta">
@@ -283,8 +284,8 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2019-04-02T20:00:00+08:00">
-                2019-04-02
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2020-03-07T10:00:00+08:00">
+                2020-03-07
               </time>
             
 
@@ -306,8 +307,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/修電腦/" itemprop="url" rel="index">
-                    <span itemprop="name">修電腦</span>
+                  <a href="/categories/OpenWrt-筆記/" itemprop="url" rel="index">
+                    <span itemprop="name">OpenWrt 筆記</span>
                   </a>
                 </span>
 
@@ -343,32 +344,13 @@
       
 
       
-        <p>總之 N 年前買的 M325 開始連點了，這已經不知道是第幾次復發了，乾脆趁機換一換微動，不過也沒研究，去電子材料行隨便問老闆歐姆龍的微動就買了。<br><a id="more"></a></p>
-<h1 id="所需工具"><a href="#所需工具" class="headerlink" title="所需工具"></a>所需工具</h1><p>身為一個高中讀資訊科的男人，手上有一些工具也是正常的：</p>
-<ul>
-<li>電烙鐵 (個人使用 30W 的)</li>
-<li>烙鐵架</li>
-<li>焊錫</li>
-<li>吸錫器</li>
-<li>十字起子</li>
-<li>一字起子</li>
-<li>電表(個人使用數位電表)</li>
-</ul>
-<h1 id="測試"><a href="#測試" class="headerlink" title="測試"></a>測試</h1><p>將微動換上前記得先用電表的歐姆檔測試一下新微動，我的測試方法是</p>
-<ol>
-<li>歐姆檔最小</li>
-<li>探針碰在微動的第一支和第三支接腳</li>
-<li>讀數會變動，這時按下微動，讀數會變成 1</li>
-<li>判定正常作動</li>
-</ol>
-<h1 id="拆解"><a href="#拆解" class="headerlink" title="拆解"></a>拆解</h1><p>既然買的東西正常，就該開始拆滑鼠了<br>這滑鼠只有一顆螺絲，撕開貼紙即可看到<br><img src="https://2cpxqa.bn.files.1drv.com/y4mPm9r00Dy4m21Tcyv8lzPcWpfq9ZH9YLcaf09ul8hyfQfJ_GvXHMfBsYjJ5PNsfifRWUHX2Ee6MtkfPqQJsf7OY-a2LTfZP5xiTHcjl3W3U2JQ311YErxUsuI2NzLqRr2kA7RzqFIsk1jQovTFWeKYkHVIpVZ-mhwe4kFo8K7NpQcci4r_9DdgP8KF4TSHOTg000GDy9B8POAtIs-jlBXxw" alt="M325_1"></p>
-<p>繼續拆下去，就可以看到電路板了，這邊有兩個卡準，分別搬開就可以取出電路板了。<br>電路板、電池接點、雷射感應器，這三個東西是一塊的。<br>滑鼠開關請小心，拆完有可能會不知道噴到哪裡去。<br>滾輪也是另外的，拆起電路板滾輪自然會下來，不用特別著墨。<br><img src="https://fvt5aq.bn.files.1drv.com/y4mM7tTP3QRNYEQNWdcfwCQPjt9w50_4KSITuC46_h7Eaq3vVETZoSdDDrhpRkFQOVFKzl4Bz4u8_nC1DUrx_rH1rBZmbRaS5tEpIIwTdk8KilWf6LW2y7OpgXmDUkTgMBHeqRrHIpCgbr0RUI5DJzJ_9cs56NcvFfso2croT2gZ3igUSVw5BrbgXKQ1Pwti18EVywN0WfMld_9AD-VYEto6A" alt="M325_2"></p>
-<h1 id="更換"><a href="#更換" class="headerlink" title="更換"></a>更換</h1><div class="note danger"><p>烙鐵高溫，危險勿碰。無經驗者請找有經驗的朋友幫忙！ </p></div>
-<p>接下來的過程就沒有拍攝了，總之就是把三隻腳解焊，然後用吸錫器把銲錫吸起來，不過微動是三隻腳，而且加上烙鐵、電路板，我根本沒有多的手可以幫忙，最後是用嘴巴咬住一字起子，然後伸進去微動與電路板中的空隙，融一下焊點、搬一下微動，弄了很久。</p>
-<p>PS. 微動不能只焊 2 支腳，我想偷懶，結果不行。</p>
-<h1 id="收工"><a href="#收工" class="headerlink" title="收工"></a>收工</h1><p>組裝回去前先假組裝，測試功能一切正常，接下來就可以全部裝回去了。<br>順序：開關 &gt; 電路板 &gt; 滾輪 &gt; 上蓋 &gt; 螺絲</p>
-<h1 id="關於滾輪"><a href="#關於滾輪" class="headerlink" title="關於滾輪"></a>關於滾輪</h1><p>特寫一下髒髒的滾輪<br><img src="https://2cq8mw.bn.files.1drv.com/y4m96NYgwS0WdBESUs6b8ZW7gXY-haNz4nFRoLZiMRw6tGZQpkO1j0Z7yYz1fdSDSempDrCeNDOlLSnwrJb8uUUP19BysGAgFh8Ht4bITjOgk8a3oPn6bVNI77UR9nmLpEGxqC9nRSk1fuwL0Ob-GMsQgx9BygEel5WGMm3IgjekpJzrxSQ0pnoA6F_EK1JRwvZnQdxQUHnGSLybHm7nq8fTA" alt="M325_3"></p>
-<p>關於這東西，可以拿衛生紙清理，要注意的是，橡膠的地方內圈是有油的，所以清理橡膠地方時請小力，不然會像我一樣把橡膠弄破…</p>
+        <p>OpenWrt 刷上去興奮的開機了，結果換來的是網路無法聯外，僅能在本地自嗨，究竟是什麼問題呢？<br><a id="more"></a></p>
+<h2 id="問題"><a href="#問題" class="headerlink" title="問題"></a>問題</h2><p>OpenWrt 刷完後會發現，明明一樣接著 WAN 口，但是卻無法上網。</p>
+<p>會像我一樣大概是因為介面設定出問題，首先進入 OpenWrt 設定頁面，並導航到如下位置：<br><div class="note info"><p>網路 &gt; 介面</p></div></p>
+<h2 id="實體介面設置"><a href="#實體介面設置" class="headerlink" title="實體介面設置"></a>實體介面設置</h2><h3 id="LAN"><a href="#LAN" class="headerlink" title="LAN"></a>LAN</h3><p>接著將 LAN 介面如下打勾：<br><div class="note info"><p>Switch VLAN: “eth1.1” (lan)<br>無線網路: Master “SSID” (lan)<br>無線網路: Master “SSID”  (lan)</p></div><br><img src="https://okhzwa.bn.files.1drv.com/y4mZrbamB76IQh_xpRMoQV7d-963Un7V22QroYhfIxLP_aEEFmFGkjB3Upw6H-zqGEOCZJjNVrqkI2ubVaXBHHCiniaMM9Mrwwn_bApWmiNWogzsR3E0sPcuPyt9v2plE8AWVsq0h0GwSd-2QSlKpaLMeLgrkH-kg7g3xjZH7edxHlqoNzM7HUGuIt-E4FyTRpPhZmkwEsBpW3ugXr6wkTvBQ" alt="Openwrt_interfaceSetting_0"></p>
+<h3 id="WAN"><a href="#WAN" class="headerlink" title="WAN"></a>WAN</h3><p>接著將 WAN 介面如下打勾：<br><div class="note info"><p>Switch VLAN: “eth0.1” (wan, wan6)</p></div><br><img src="https://okf0nq.bn.files.1drv.com/y4mVmF4lH79vHg7WmXT1PJ4tuCUTRZxUc_jbzAzdKeWrKkd8fhCngqiMbqBr_eAWbrtkKVM8SUGgE_pomEfMTzBlGA9XMW1Q1lhzQeJFI0oIcS6dKB_ybUQvqUAb0M_ieL1KEktWQo0zXSBwAWuYeUuiszM1uaz9b4CGErkRx6lc8VY2RxDqi-SqenjKLeX2tPW1KF1bxjAhCVw1xWAj2XL1A" alt="Openwrt_interfaceSetting_1"></p>
+<h2 id="防火牆設置"><a href="#防火牆設置" class="headerlink" title="防火牆設置"></a>防火牆設置</h2><p>防火牆設定上也請注意，別為了讓路由可以上網把 WAN 跟 LAN 指定到同一區域了，我的設定如下：<br><img src="https://okepta.bn.files.1drv.com/y4mW1YQx15uucGPF5TXSDZrMQiBh8CGieJqiYfUeJDOYllCfiGSITjaG0OxWjOuKae9lhevlcm6TzPD8v3yMoF1mCsgziYweFkB1YkonKGfcN2lJAXKvKUV-IsDDtzuiU8dSBjKy94jDHOzua5987pFcrwct1U7GojetwDI3DzBTL1p2tx6Z7ufBbZVAW8JEMg920jVgU5K-TW3GYH1sgfC4g" alt="Openwrt_interfaceSetting_2"></p>
+<h2 id="完工圖"><a href="#完工圖" class="headerlink" title="完工圖"></a>完工圖</h2><p>設定都正確的話理論上會呈現如下圖，WAN 顏色都為紅色，LAN 顏色都為綠色。<br><img src="https://okgj1w.bn.files.1drv.com/y4mABQouAKqyfSabiMbTVKD3aGfn6ekbiOtyt9B8NJSRkEbSwhj_-d0MOK1mvJ8cVk-TjnH_76Dev62wAPlHj209lsKHz90timxPI5Ks6E3LrRrYppdTBvUlNmATe-yDjF2t1P0DmF1Q_GIKYkI23dKhNlLPxG5aNSBLdJ-KcS2Pldp5E0JpgfnpEZMtGl_a2S36-DL6Voz8gRhLD-kphVxTQ" alt="Openwrt_interfaceSetting_3"></p>
 
       
     </div>
@@ -393,8 +375,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/修電腦/修電腦-2019WD硬碟RMA維修經驗/" rel="next" title="2019 WD 硬碟 RMA 維修經驗">
-                <i class="fa fa-chevron-left"></i> 2019 WD 硬碟 RMA 維修經驗
+              <a href="/Kotlin-筆記/Kotlin筆記-印出IntArray的內容/" rel="next" title="Kotlin 筆記 - 印出 IntArray 的內容">
+                <i class="fa fa-chevron-left"></i> Kotlin 筆記 - 印出 IntArray 的內容
               </a>
             
           </div>
@@ -403,8 +385,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/Kotlin-筆記/Kotlin筆記-印出IntArray的內容/" rel="prev" title="Kotlin 筆記 - 印出 IntArray 的內容">
-                Kotlin 筆記 - 印出 IntArray 的內容 <i class="fa fa-chevron-right"></i>
+              <a href="/OpenWrt-筆記/OpenWrt筆記-推薦安裝的套件包/" rel="prev" title="OpenWrt 筆記 - 推薦安裝的套件包">
+                OpenWrt 筆記 - 推薦安裝的套件包 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -546,7 +528,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#所需工具"><span class="nav-number">1.</span> <span class="nav-text">所需工具</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#測試"><span class="nav-number">2.</span> <span class="nav-text">測試</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#拆解"><span class="nav-number">3.</span> <span class="nav-text">拆解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#更換"><span class="nav-number">4.</span> <span class="nav-text">更換</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#收工"><span class="nav-number">5.</span> <span class="nav-text">收工</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#關於滾輪"><span class="nav-number">6.</span> <span class="nav-text">關於滾輪</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#問題"><span class="nav-number">1.</span> <span class="nav-text">問題</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#實體介面設置"><span class="nav-number">2.</span> <span class="nav-text">實體介面設置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#LAN"><span class="nav-number">2.1.</span> <span class="nav-text">LAN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WAN"><span class="nav-number">2.2.</span> <span class="nav-text">WAN</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#防火牆設置"><span class="nav-number">3.</span> <span class="nav-text">防火牆設置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#完工圖"><span class="nav-number">4.</span> <span class="nav-text">完工圖</span></a></li></ol></div>
             
 
           </div>
