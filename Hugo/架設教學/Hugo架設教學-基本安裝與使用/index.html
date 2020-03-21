@@ -77,18 +77,18 @@
 
 
 
-<meta name="description" content="模組一多加上換電腦開發時，重裝模組總是那麼的浪費時間">
+<meta name="description" content="這篇文章會教你如何把 Hugo 從無到有架設起來。">
 <meta name="keywords" content="txw">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python 3 筆記 - 自動安裝所需的 Module">
-<meta property="og:url" content="https://mrnegativetw.github.io/Python-3-筆記/Python3筆記-自動安裝所需的Module/index.html">
+<meta property="og:title" content="Hugo 架設教學 - 基本安裝與使用">
+<meta property="og:url" content="https://mrnegativetw.github.io/Hugo/架設教學/Hugo架設教學-基本安裝與使用/index.html">
 <meta property="og:site_name" content="TxW Tech Studio">
-<meta property="og:description" content="模組一多加上換電腦開發時，重裝模組總是那麼的浪費時間">
+<meta property="og:description" content="這篇文章會教你如何把 Hugo 從無到有架設起來。">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2020-03-06T14:26:34.907Z">
+<meta property="og:updated_time" content="2020-03-21T15:59:14.546Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python 3 筆記 - 自動安裝所需的 Module">
-<meta name="twitter:description" content="模組一多加上換電腦開發時，重裝模組總是那麼的浪費時間">
+<meta name="twitter:title" content="Hugo 架設教學 - 基本安裝與使用">
+<meta name="twitter:description" content="這篇文章會教你如何把 Hugo 從無到有架設起來。">
 
 
 
@@ -118,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="https://mrnegativetw.github.io/Python-3-筆記/Python3筆記-自動安裝所需的Module/">
+  <link rel="canonical" href="https://mrnegativetw.github.io/Hugo/架設教學/Hugo架設教學-基本安裝與使用/">
 
 
 
 
 
-  <title>Python 3 筆記 - 自動安裝所需的 Module | TxW Tech Studio</title>
+  <title>Hugo 架設教學 - 基本安裝與使用 | TxW Tech Studio</title>
   
 
 
@@ -250,7 +250,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://mrnegativetw.github.io/Python-3-筆記/Python3筆記-自動安裝所需的Module/">
+    <link itemprop="mainEntityOfPage" href="https://mrnegativetw.github.io/Hugo/架設教學/Hugo架設教學-基本安裝與使用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Trevor Wu">
@@ -267,7 +267,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Python 3 筆記 - 自動安裝所需的 Module</h1>
+          <h1 class="post-title" itemprop="name headline">Hugo 架設教學 - 基本安裝與使用</h1>
         
 
         <div class="post-meta">
@@ -279,8 +279,8 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-09-28T10:00:00+08:00">
-                2018-09-28
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2020-03-22T10:00:00+08:00">
+                2020-03-22
               </time>
             
 
@@ -302,8 +302,19 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python-3-筆記/" itemprop="url" rel="index">
-                    <span itemprop="name">Python 3 筆記</span>
+                  <a href="/categories/Hugo/" itemprop="url" rel="index">
+                    <span itemprop="name">Hugo</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Hugo/架設教學/" itemprop="url" rel="index">
+                    <span itemprop="name">架設教學</span>
                   </a>
                 </span>
 
@@ -339,9 +350,21 @@
       
 
       
-        <p>模組一多加上換電腦開發時，重裝模組總是那麼的浪費時間<br><a id="more"></a></p>
-<h1 id="重點程式碼"><a href="#重點程式碼" class="headerlink" title="重點程式碼"></a>重點程式碼</h1><p>首先開啟你的終端機，並 <code>cd</code> 到 Python 專案的目錄<br>接著讓 pip 為我們產生所需模組列表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m pip freeze &gt; requirements.txt</span><br></pre></td></tr></table></figure></p>
-<p>接著我們可以在要操作的電腦上輸入下面這行，讓 pip 為我們安裝所需要的模組<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></table></figure></p>
+        <p>這篇文章會教你如何把 Hugo 從無到有架設起來。<br><a id="more"></a></p>
+<h1 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h1><h2 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h2><div class="note info"><p>本篇文章 Windows 部分皆使用 PowerShell 操作。</p></div>
+<p>Windows 下分為「使用套件包管理員」及「手動下載 Release」兩種安裝方式，本文使用套件包管理員的安裝方式，省事快速方便。</p>
+<p>首先安裝 Chocolatey：<a href="https://chocolatey.org/install#individual" target="_blank" rel="noopener">官網</a><br>基本上就是用<strong>管理員</strong>權限打開 PowerShell 並輸入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString(&apos;https://chocolatey.org/install.ps1&apos;))</span><br></pre></td></tr></table></figure></p>
+<p>安裝完成後重新開啟 PowerShell 並輸入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">choco install hugo -confirm</span><br></pre></td></tr></table></figure></p>
+<p>安裝完成後一樣重啟 PowerShell 即可使用 <code>hugo</code> 指令確認安裝是否成功。</p>
+<h2 id="macOS"><a href="#macOS" class="headerlink" title="macOS"></a>macOS</h2><p>未安裝，未來會更新</p>
+<h1 id="建立網站"><a href="#建立網站" class="headerlink" title="建立網站"></a>建立網站</h1><p>因為我打算使用 Gitlab 來發布 Hugo，所以我選擇在 Gitlab 的資料夾建立網站，不過先不用急著新增資料夾，先 cd 進去就好，例如 <code>cd ~/Documents/GitLab</code>，接著請 Hugo 建立新網站<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hugo new site username.gitlab.io</span><br></pre></td></tr></table></figure></p>
+<p>最後一個 <code>username.gitlab.io</code> 為新網站資料夾名稱，指令完成後 cd 進入。</p>
+<h1 id="尋找主題"><a href="#尋找主題" class="headerlink" title="尋找主題"></a>尋找主題</h1><p>首先至 <a href="https://themes.gohugo.io/" target="_blank" rel="noopener">Hugo Themes</a> 找個中意的主題使用<br><div class="note info"><p>個人使用：<a href="https://themes.gohugo.io/hugo-devresume-theme" target="_blank" rel="noopener">Dev Resume</a><br>還有一個看起來也不錯：<a href="https://themes.gohugo.io/theme/hugo-coder/" target="_blank" rel="noopener">Hugo Coder</a></p></div></p>
+<p>找到主題後可以使用如下 git 指令將主題安裝進來，或者照主題說明檔安裝。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/cowboysmall-tools/hugo-devresume-theme.git themes/devresume</span><br></pre></td></tr></table></figure></p>
+<h2 id="基本設定"><a href="#基本設定" class="headerlink" title="基本設定"></a>基本設定</h2><p>使用編輯器開啟網站根目錄的 <code>config.tmol</code><br>前三行修改為自己的設定，再外加一項 <code>theme</code> 指定使用的主題<br>主題名稱為稍早的 git 指令第四項參數(<code>themes/devresume</code>) 的資料夾名稱 </p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">baseURL</span> <span class="string">=</span> <span class="string">"https://covid19resume.gitlab.io/"</span></span><br><span class="line"><span class="string">languageCode</span> <span class="string">=</span> <span class="string">"en-us"</span></span><br><span class="line"><span class="string">title</span> <span class="string">=</span> <span class="string">"武漢肺炎簡歷"</span></span><br><span class="line"><span class="string">theme</span> <span class="string">=</span> <span class="string">"devresume"</span></span><br></pre></td></tr></table></figure>
+<p>最後輸入 <code>hugo server</code> 即可在本地端 <code>localhost:1313</code> 預覽網站的樣貌了，而且每當存檔，網頁都會自己重新整理！超好用！</p>
+<h1 id="產生內容"><a href="#產生內容" class="headerlink" title="產生內容"></a>產生內容</h1><p>於網站根目錄輸入 <code>hugo</code> 即可產生靜態內容，並依據個人所需找地方部署囉！</p>
 
       
     </div>
@@ -366,8 +389,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/Windows/技巧/Windows-刪除不要的網路/" rel="next" title="Windows - 刪除不要的網路">
-                <i class="fa fa-chevron-left"></i> Windows - 刪除不要的網路
+              <a href="/Windows/技巧/Windows-用Hyper取代醜陋的PowerShell/" rel="next" title="Windows - 用 Hyper 取代醜陋的 PowerShell">
+                <i class="fa fa-chevron-left"></i> Windows - 用 Hyper 取代醜陋的 PowerShell
               </a>
             
           </div>
@@ -376,8 +399,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/Python-3-筆記/Beautiful-Soup/Python3筆記-利用Requests與BeautifulSoup爬取需登入的ASPX頁面/" rel="prev" title="Python 3 筆記 - 利用 Requests 與 Beautiful Soup 爬取需登入的 ASPX 頁面">
-                Python 3 筆記 - 利用 Requests 與 Beautiful Soup 爬取需登入的 ASPX 頁面 <i class="fa fa-chevron-right"></i>
+              <a href="/Hugo/架設教學/Hugo架設教學-部署到GitlabPages/" rel="prev" title="Hugo 架設教學 - 部署到 Gitlab Pages">
+                Hugo 架設教學 - 部署到 Gitlab Pages <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -519,7 +542,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#重點程式碼"><span class="nav-number">1.</span> <span class="nav-text">重點程式碼</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安裝"><span class="nav-number">1.</span> <span class="nav-text">安裝</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Windows"><span class="nav-number">1.1.</span> <span class="nav-text">Windows</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#macOS"><span class="nav-number">1.2.</span> <span class="nav-text">macOS</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#建立網站"><span class="nav-number">2.</span> <span class="nav-text">建立網站</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#尋找主題"><span class="nav-number">3.</span> <span class="nav-text">尋找主題</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本設定"><span class="nav-number">3.1.</span> <span class="nav-text">基本設定</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#產生內容"><span class="nav-number">4.</span> <span class="nav-text">產生內容</span></a></li></ol></div>
             
 
           </div>
