@@ -77,18 +77,22 @@
 
 
 
-<meta name="description" content="升級的 Windows 10 比較容易出現這種 bug，不管是拖曳、刪除、加入等等，都會使開始功能表當機，就算沒當機，電腦重開機之後也回恢復到初始狀態，這就是磚資料庫受損啦！">
+<meta name="description" content="教你安裝與設定比 Powerlevel9k 更強大好看的 ZSH 主題。">
 <meta name="keywords" content="txw">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Windows - 修復 Windows 10 的開始功能磚">
-<meta property="og:url" content="https://mrnegativetw.github.io/Windows/維修/Windows-修復Windows10的開始功能磚/index.html">
+<meta property="og:title" content="Powerlevel10k 安裝設定教學">
+<meta property="og:url" content="https://mrnegativetw.github.io/我也不知道怎麼分類/Powerlevel10k安裝設定教學/index.html">
 <meta property="og:site_name" content="TxW Tech Studio">
-<meta property="og:description" content="升級的 Windows 10 比較容易出現這種 bug，不管是拖曳、刪除、加入等等，都會使開始功能表當機，就算沒當機，電腦重開機之後也回恢復到初始狀態，這就是磚資料庫受損啦！">
+<meta property="og:description" content="教你安裝與設定比 Powerlevel9k 更強大好看的 ZSH 主題。">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2020-03-06T14:26:34.907Z">
+<meta property="og:image" content="https://imgur.com/Y3q6ui6.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/configuration-wizard.gif">
+<meta property="og:image" content="https://imgur.com/D5uwcop.gif">
+<meta property="og:updated_time" content="2020-06-13T11:34:12.623Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Windows - 修復 Windows 10 的開始功能磚">
-<meta name="twitter:description" content="升級的 Windows 10 比較容易出現這種 bug，不管是拖曳、刪除、加入等等，都會使開始功能表當機，就算沒當機，電腦重開機之後也回恢復到初始狀態，這就是磚資料庫受損啦！">
+<meta name="twitter:title" content="Powerlevel10k 安裝設定教學">
+<meta name="twitter:description" content="教你安裝與設定比 Powerlevel9k 更強大好看的 ZSH 主題。">
+<meta name="twitter:image" content="https://imgur.com/Y3q6ui6.png">
 
 
 
@@ -118,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://mrnegativetw.github.io/Windows/維修/Windows-修復Windows10的開始功能磚/">
+  <link rel="canonical" href="https://mrnegativetw.github.io/我也不知道怎麼分類/Powerlevel10k安裝設定教學/">
 
 
 
 
 
-  <title>Windows - 修復 Windows 10 的開始功能磚 | TxW Tech Studio</title>
+  <title>Powerlevel10k 安裝設定教學 | TxW Tech Studio</title>
   
 
 
@@ -250,7 +254,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://mrnegativetw.github.io/Windows/維修/Windows-修復Windows10的開始功能磚/">
+    <link itemprop="mainEntityOfPage" href="https://mrnegativetw.github.io/我也不知道怎麼分類/Powerlevel10k安裝設定教學/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Trevor Wu">
@@ -267,7 +271,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Windows - 修復 Windows 10 的開始功能磚</h1>
+          <h1 class="post-title" itemprop="name headline">Powerlevel10k 安裝設定教學</h1>
         
 
         <div class="post-meta">
@@ -279,8 +283,8 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-08-22T22:54:55+08:00">
-                2018-08-22
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2020-06-13T18:56:20+08:00">
+                2020-06-13
               </time>
             
 
@@ -302,19 +306,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Windows/" itemprop="url" rel="index">
-                    <span itemprop="name">Windows</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Windows/維修/" itemprop="url" rel="index">
-                    <span itemprop="name">維修</span>
+                  <a href="/categories/我也不知道怎麼分類/" itemprop="url" rel="index">
+                    <span itemprop="name">我也不知道怎麼分類</span>
                   </a>
                 </span>
 
@@ -350,12 +343,14 @@
       
 
       
-        <p>升級的 Windows 10 比較容易出現這種 bug，不管是拖曳、刪除、加入等等，都會使開始功能表當機，就算沒當機，電腦重開機之後也回恢復到初始狀態，這就是磚資料庫受損啦！<br><a id="more"></a></p>
-<h1 id="解決辦法"><a href="#解決辦法" class="headerlink" title="解決辦法"></a>解決辦法</h1><p>使用微軟的自動修復工具吧，這個工具能解決 87% 的問題</p>
-<blockquote>
-<p><a href="https://1drv.ms/u/s!At0xpJmW4uV6hgSNZrQb-YD9Cz_i" target="_blank" rel="noopener">點我下載</a><br>因為懶得找原討論串，所以就把從討論串載下來的修復工具放到我的雲端供下載了</p>
-</blockquote>
-<h1 id="使用教學"><a href="#使用教學" class="headerlink" title="使用教學"></a>使用教學</h1><p>打開，按步驟做，就這樣</p>
+        <p>教你安裝與設定比 Powerlevel9k 更強大好看的 ZSH 主題。<br><a id="more"></a></p>
+<h1 id="完工圖"><a href="#完工圖" class="headerlink" title="完工圖"></a>完工圖</h1><p><img src="https://imgur.com/Y3q6ui6.png" alt></p>
+<h1 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h1><p>先上 Repo 連結： <a href="https://github.com/romkatv/powerlevel10k" target="_blank" rel="noopener">romkatv/powerlevel10k</a></p>
+<p>官方 README 有教很多安裝方案，這邊因為我用 iTerm 2 配上 Oh My Zsh，所以本文安裝方法是透過 Oh My Zsh，首先打開你的 iTerm 2，並直接輸入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/themes/powerlevel10k</span><br></pre></td></tr></table></figure></p>
+<p>之後到 <code>~/.zshrc</code> 設定一下主題：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ZSH_THEME=&quot;powerlevel10k/powerlevel10k&quot;</span><br></pre></td></tr></table></figure></p>
+<p>完成後你可以重開 iTerm 2 或輸入 <code>exec $SHELL</code> 來重新讀取。</p>
+<h1 id="設定l"><a href="#設定l" class="headerlink" title="設定l"></a>設定l</h1><p>接著在安裝後第一次開啟時應該會跳出這次 10k 更新的重點功能：<strong>設定精靈</strong>，引用一下原作的圖：<br><img src="https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/configuration-wizard.gif" alt></p>
+<p>如果沒有跳出設定精靈的話也可以手動輸入 <code>p10k configure</code>，設定精靈大致長這樣，每一步驟會問你不同的喜好設定，只要照畫面提示輸入 Y/N 或 1234 就可以了。<br><img src="https://imgur.com/D5uwcop.gif" alt></p>
 
       
     </div>
@@ -380,8 +375,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/Python-3-筆記/Python3筆記-輸入數值時不用換至下一行/" rel="next" title="Python 3 筆記 - 輸入數值時不用換至下一行">
-                <i class="fa fa-chevron-left"></i> Python 3 筆記 - 輸入數值時不用換至下一行
+              <a href="/我也不知道怎麼分類/Google 文件透過網址直接切換使用者/" rel="next" title="Google 文件透過網址直接切換使用者">
+                <i class="fa fa-chevron-left"></i> Google 文件透過網址直接切換使用者
               </a>
             
           </div>
@@ -389,10 +384,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/Python-3-筆記/Flask/Python3筆記-安裝Flask找不到pip指令/" rel="prev" title="Python 3 筆記 - 安裝 Flask 找不到 pip 指令">
-                Python 3 筆記 - 安裝 Flask 找不到 pip 指令 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -533,7 +524,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#解決辦法"><span class="nav-number">1.</span> <span class="nav-text">解決辦法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用教學"><span class="nav-number">2.</span> <span class="nav-text">使用教學</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#完工圖"><span class="nav-number">1.</span> <span class="nav-text">完工圖</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安裝"><span class="nav-number">2.</span> <span class="nav-text">安裝</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#設定l"><span class="nav-number">3.</span> <span class="nav-text">設定l</span></a></li></ol></div>
             
 
           </div>
