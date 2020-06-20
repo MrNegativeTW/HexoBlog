@@ -20,20 +20,20 @@
     var CONFIG = {"hostname":"mrnegativetw.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="OpenWrt 裡面的套件包真的是又多又雜，開一篇文章來記錄一下都裝了什麼。">
+  <meta name="description" content="找了很多教學都只有貼程式碼，沒看到比較詳細的流程說明，所以這篇就來說明一下流程吧。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="OpenWrt 筆記 - 推薦安裝的套件包">
-<meta property="og:url" content="https://mrnegativetw.github.io/OpenWrt-%E7%AD%86%E8%A8%98/OpenWrt%E7%AD%86%E8%A8%98-%E6%8E%A8%E8%96%A6%E5%AE%89%E8%A3%9D%E7%9A%84%E5%A5%97%E4%BB%B6%E5%8C%85/index.html">
+<meta property="og:title" content="Android 筆記 - Data Binding 搭配 picasso 使用">
+<meta property="og:url" content="https://mrnegativetw.github.io/Android-%E7%AD%86%E8%A8%98/Android-DataBinding%E8%88%87Picasso/index.html">
 <meta property="og:site_name" content="TxW Tech Studio">
-<meta property="og:description" content="OpenWrt 裡面的套件包真的是又多又雜，開一篇文章來記錄一下都裝了什麼。">
+<meta property="og:description" content="找了很多教學都只有貼程式碼，沒看到比較詳細的流程說明，所以這篇就來說明一下流程吧。">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2020-03-07T02:01:00.000Z">
-<meta property="article:modified_time" content="2020-03-07T15:27:49.236Z">
+<meta property="article:published_time" content="2020-06-20T02:00:00.000Z">
+<meta property="article:modified_time" content="2020-06-20T15:59:11.265Z">
 <meta property="article:author" content="Trevor Wu">
 <meta property="article:tag" content="txw">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://mrnegativetw.github.io/OpenWrt-%E7%AD%86%E8%A8%98/OpenWrt%E7%AD%86%E8%A8%98-%E6%8E%A8%E8%96%A6%E5%AE%89%E8%A3%9D%E7%9A%84%E5%A5%97%E4%BB%B6%E5%8C%85/">
+<link rel="canonical" href="https://mrnegativetw.github.io/Android-%E7%AD%86%E8%A8%98/Android-DataBinding%E8%88%87Picasso/">
 
 
 <script id="page-configurations">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>OpenWrt 筆記 - 推薦安裝的套件包 | TxW Tech Studio</title>
+  <title>Android 筆記 - Data Binding 搭配 picasso 使用 | TxW Tech Studio</title>
   
 
 
@@ -157,7 +157,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-tw">
-    <link itemprop="mainEntityOfPage" href="https://mrnegativetw.github.io/OpenWrt-%E7%AD%86%E8%A8%98/OpenWrt%E7%AD%86%E8%A8%98-%E6%8E%A8%E8%96%A6%E5%AE%89%E8%A3%9D%E7%9A%84%E5%A5%97%E4%BB%B6%E5%8C%85/">
+    <link itemprop="mainEntityOfPage" href="https://mrnegativetw.github.io/Android-%E7%AD%86%E8%A8%98/Android-DataBinding%E8%88%87Picasso/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -170,7 +170,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          OpenWrt 筆記 - 推薦安裝的套件包
+          Android 筆記 - Data Binding 搭配 picasso 使用
         </h1>
 
         <div class="post-meta">
@@ -180,7 +180,7 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2020-03-07 10:01:00" itemprop="dateCreated datePublished" datetime="2020-03-07T10:01:00+08:00">2020-03-07</time>
+              <time title="Created: 2020-06-20 10:00:00" itemprop="dateCreated datePublished" datetime="2020-06-20T10:00:00+08:00">2020-06-20</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -188,7 +188,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/OpenWrt-%E7%AD%86%E8%A8%98/" itemprop="url" rel="index"><span itemprop="name">OpenWrt 筆記</span></a>
+                  <a href="/categories/Android-%E7%AD%86%E8%A8%98/" itemprop="url" rel="index"><span itemprop="name">Android 筆記</span></a>
                 </span>
             </span>
 
@@ -203,14 +203,36 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>OpenWrt 裡面的套件包真的是又多又雜，開一篇文章來記錄一下都裝了什麼。</p>
+        <p>找了很多教學都只有貼程式碼，沒看到比較詳細的流程說明，所以這篇就來說明一下流程吧。</p>
 <a id="more"></a>
-<h2 id="中文化"><a href="#中文化" class="headerlink" title="中文化"></a>中文化</h2><p><code>*-zh-TW</code><br>雖然中文化有時候怪怪的，不過可以更快找到目標，不裝嗎？<br>而且我有在幫忙翻譯，所以會越來越好的。</p>
-<h2 id="網路喚醒-WOL"><a href="#網路喚醒-WOL" class="headerlink" title="網路喚醒 / WOL"></a>網路喚醒 / WOL</h2><p><code>luci-app-wol</code></p>
-<h2 id="WiFi-排程-WiFi-Schedule"><a href="#WiFi-排程-WiFi-Schedule" class="headerlink" title="WiFi 排程 / WiFi Schedule"></a>WiFi 排程 / WiFi Schedule</h2><p><code>luci-app-wifischedule</code></p>
-<h2 id="USB-網路共享-USB-Tethering"><a href="#USB-網路共享-USB-Tethering" class="headerlink" title="USB 網路共享 / USB Tethering"></a>USB 網路共享 / USB Tethering</h2><p><code>kmod-usb-net</code><br><code>kmod-usb-net-cdc-ether</code><br><code>kmod-usb-net-rndis</code></p>
-<p>For Android, iPhone 需要需要其他<a href="https://openwrt.org/docs/guide-user/network/wan/smartphone.usb.tethering" target="_blank" rel="noopener">額外的套件</a>。</p>
-<h2 id="統計-Statistics"><a href="#統計-Statistics" class="headerlink" title="統計 / Statistics"></a>統計 / Statistics</h2><p><code>luci-app-statistics</code></p>
+<p>不廢話直接上 Code</p>
+<h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><h2 id="CustomViewModel"><a href="#CustomViewModel" class="headerlink" title="CustomViewModel"></a>CustomViewModel</h2><ol>
+<li>依照你的狀況照常設定變數</li>
+<li>Uri 為空時將變數設定為 <code>Uri.EMPTY</code><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> photoUrl = MutableLiveData&lt;Uri&gt;()</span><br><span class="line"></span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="keyword">if</span> (firebaseUser != <span class="literal">null</span>) &#123;</span><br><span class="line">    <span class="keyword">this</span>.photoUrl.value = firebaseUser.photoUrl</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.photoUrl.value = Uri.EMPTY</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="ImageBindingAdapter"><a href="#ImageBindingAdapter" class="headerlink" title="ImageBindingAdapter"></a>ImageBindingAdapter</h2><ol>
+<li>須為 object，非 class</li>
+<li>使用 <code>@JvmStatic</code> 及 <code>@BindingAdapter(&quot;&quot;)</code><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">object</span> ImageBindingAdapter &#123;</span><br><span class="line">    <span class="meta">@JvmStatic</span></span><br><span class="line">    <span class="meta">@BindingAdapter(<span class="meta-string">"imageUrl"</span>, <span class="meta-string">"error"</span>)</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">setImageUrl</span><span class="params">(view: <span class="type">ImageView</span>, url: <span class="type">Uri</span>, notSignedIn: <span class="type">Drawable</span>)</span></span> &#123;</span><br><span class="line">        Picasso.<span class="keyword">get</span>()</span><br><span class="line">                .load(url)</span><br><span class="line">                .error(notSignedIn)</span><br><span class="line">                .into(view)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="fragment-xml"><a href="#fragment-xml" class="headerlink" title="fragment.xml"></a>fragment.xml</h2><ol>
+<li><code>&lt;data&gt;</code> 標籤中僅需 ViewModel 即可，不用 <code>ImageBindingAdapter</code></li>
+<li>使用 <code>app:CUSTOM_ATTR_HERE</code> 來使用自訂的 Setter<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ImageView</span></span></span><br><span class="line"><span class="tag">    <span class="attr">...</span></span></span><br><span class="line"><span class="tag">    <span class="attr">app:imageUrl</span>=<span class="string">"@&#123;viewModel.photoUrl&#125;"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">app:error</span>=<span class="string">"@&#123;@drawable/ic_launcher&#125;"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+<h1 id="運作流程"><a href="#運作流程" class="headerlink" title="運作流程"></a>運作流程</h1><p>因為在 <code>ImageBindingAdapter</code> 裡面使用 <code>BindingAdapter</code> 指定了 xml 中的屬性，所以</p>
+<ol>
+<li>xml 中監聽到 <code>ViewModel</code> 中的變化時</li>
+<li>呼叫 <code>ImageBindingAdapter</code> 中定義 <code>BindingAdapter</code> 的 Function</li>
+<li>傳入 xml 中自定義的 <code>@{viewModel.photoUrl}</code> 數值</li>
+<li>執行 Function 內容，也就是使用 Picasso 將傳過來的 <code>@{viewModel.photoUrl}</code> 載入 ImageView</li>
+</ol>
+<p>好了，希望可以幫助到也搞不懂原理的你。</p>
 
     </div>
 
@@ -226,13 +248,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/OpenWrt-%E7%AD%86%E8%A8%98/OpenWrt%E7%AD%86%E8%A8%98-TpLinkArcherC7V2%E7%9A%84%E7%B6%B2%E8%B7%AF%E4%BB%8B%E9%9D%A2%E8%A8%AD%E7%BD%AE/" rel="prev" title="OpenWrt 筆記 - TP-Link Archer C7 V2 網路介面設置">
-      <i class="fa fa-chevron-left"></i> OpenWrt 筆記 - TP-Link Archer C7 V2 網路介面設置
+    <a href="/%E6%88%91%E4%B9%9F%E4%B8%8D%E7%9F%A5%E9%81%93%E6%80%8E%E9%BA%BC%E5%88%86%E9%A1%9E/%E7%A8%8B%E5%BC%8F%E9%96%8B%E7%99%BC%E8%B7%AF%E4%B8%8A%E7%9A%84%E6%9B%B8%E5%96%AE/" rel="prev" title="程式開發路上的書單">
+      <i class="fa fa-chevron-left"></i> 程式開發路上的書單
     </a></div>
-      <div class="post-nav-item">
-    <a href="/macOS/%E5%95%8F%E9%A1%8C/macOS-%E7%9D%A1%E7%9C%A0%E5%BE%8C%E7%84%A1%E8%81%B2%E9%9F%B3%E8%A7%A3%E6%B1%BA%E8%BE%A6%E6%B3%95/" rel="next" title="macOS 問題 - 睡眠喚醒後沒聲音解決辦法">
-      macOS 問題 - 睡眠喚醒後沒聲音解決辦法 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -291,7 +310,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#中文化"><span class="nav-number">1.</span> <span class="nav-text">中文化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#網路喚醒-WOL"><span class="nav-number">2.</span> <span class="nav-text">網路喚醒 &#x2F; WOL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WiFi-排程-WiFi-Schedule"><span class="nav-number">3.</span> <span class="nav-text">WiFi 排程 &#x2F; WiFi Schedule</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#USB-網路共享-USB-Tethering"><span class="nav-number">4.</span> <span class="nav-text">USB 網路共享 &#x2F; USB Tethering</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#統計-Statistics"><span class="nav-number">5.</span> <span class="nav-text">統計 &#x2F; Statistics</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Code"><span class="nav-number">1.</span> <span class="nav-text">Code</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CustomViewModel"><span class="nav-number">1.1.</span> <span class="nav-text">CustomViewModel</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ImageBindingAdapter"><span class="nav-number">1.2.</span> <span class="nav-text">ImageBindingAdapter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fragment-xml"><span class="nav-number">1.3.</span> <span class="nav-text">fragment.xml</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#運作流程"><span class="nav-number">2.</span> <span class="nav-text">運作流程</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
