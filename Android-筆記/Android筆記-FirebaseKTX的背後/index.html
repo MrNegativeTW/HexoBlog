@@ -28,7 +28,7 @@
 <meta property="og:description" content="今天在移動 Firebase 的 dependencies 到 *-ktx 時發現了些東西。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2020-09-05T02:00:00.000Z">
-<meta property="article:modified_time" content="2020-09-05T08:24:15.366Z">
+<meta property="article:modified_time" content="2020-09-05T11:45:03.558Z">
 <meta property="article:author" content="Trevor Wu">
 <meta property="article:tag" content="txw">
 <meta name="twitter:card" content="summary">
@@ -206,33 +206,23 @@
         <p>今天在移動 Firebase 的 dependencies 到 *-ktx 時發現了些東西。</p>
 <a id="more"></a>
 <p>事情是這樣的，Firebase 發布 *-ktx 的 Android SDK 好一段時間了，但我開始做這專案時還是 java 的版本，直到這幾天我才想把 dependencies 全部移動到 *-ktx 上，然後移著移著就發現了 ktx 好像只是包上糖衣的 java？</p>
-<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>改 dependencies 首先就是改 build.gradle(app)，基本上加上 -ktx 就完成了</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>首先改 build.gradle(app) 裡面的 dependencies，基本上加上 -ktx 就完成了</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; Java</span><br><span class="line">com.google.firebase:firebase-firestore:21.6.0</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; Kotlin</span><br><span class="line">com.google.firebase:firebase-firestore-ktx:21.6.0</span><br></pre></td></tr></table></figure>
 
 <p>第二步就是改 code，這邊開始我就發現了些問題，把 java 版本的 SDK 注解掉之後 Code 竟然沒跳錯誤？咦？</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Java</span></span><br><span class="line"><span class="comment">// 照理來說換個 SDK 這裡就應該跳錯誤了</span></span><br><span class="line">db = FirebaseFirestore.getInstanse()</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Java</span></span><br><span class="line"><span class="comment">// 照理來說換個 SDK 這裡就應該跳錯誤了</span></span><br><span class="line">val db = FirebaseFirestore.getInstance()</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Kotlin</span></span><br><span class="line"><span class="keyword">val</span> db = Firebase.firestore</span><br></pre></td></tr></table></figure>
 
 <h1 id="拆起來各位"><a href="#拆起來各位" class="headerlink" title="拆起來各位"></a>拆起來各位</h1><p>Intellij IDEA 的編輯器有個好用的功能， <code>Ctrl</code>/<code>Command</code> + <code>B</code> 按下去，源碼可以直接抓出來給你看，從哪邊引用的都一清二楚。</p>
-<div class="note default">
-            <p>內容 </p>
-          </div>
-<div class="note primary">
-            <p>內容 </p>
-          </div>
-<div class="note success">
-            <p>內容 </p>
-          </div>
-<div class="note info">
-            <p>內容 </p>
-          </div>
-<div class="note warning">
-            <p>內容 </p>
-          </div>
-<div class="note danger">
-            <p>內容 </p>
-          </div>
+<h2 id="拆-Java"><a href="#拆-Java" class="headerlink" title="拆 Java"></a>拆 Java</h2><p>首先我們看看 Java 版中的 <code>FirebaseFirestore</code> 來自哪裡<br><img src="" alt=""></p>
+<p>可以看到他連結到了 <code>com.google.firebase.firestore</code> package 中的 <code>FirebaseFirestore</code> class</p>
+<h2 id="拆-Kotlin"><a href="#拆-Kotlin" class="headerlink" title="拆 Kotlin"></a>拆 Kotlin</h2><p>接著看看 Kotlin 版中的 <code>Firebase.firestore</code> 來自哪裡</p>
+<p><strong>Firebase</strong><br>拆下去結果是空的，下一位</p>
+<p><strong>firestore</strong><br>這才是我們要看的，找到源碼後有沒有覺得很眼熟，就和我們在 Java 中寫的一樣<br><code>FirebaseFirestore.getInstance()</code><br><img src="" alt=""></p>
+<p>那我們再拆拆看這裡的 <code>FirebaseFirestore</code> 來自哪裡</p>
+<p>最後還是連結到了和 Java 中一樣的 class<br><img src="" alt=""></p>
+
     </div>
 
     
@@ -309,7 +299,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#正文"><span class="nav-number">1.</span> <span class="nav-text">正文</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#拆起來各位"><span class="nav-number">2.</span> <span class="nav-text">拆起來各位</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#正文"><span class="nav-number">1.</span> <span class="nav-text">正文</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#拆起來各位"><span class="nav-number">2.</span> <span class="nav-text">拆起來各位</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#拆-Java"><span class="nav-number">2.1.</span> <span class="nav-text">拆 Java</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拆-Kotlin"><span class="nav-number">2.2.</span> <span class="nav-text">拆 Kotlin</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
