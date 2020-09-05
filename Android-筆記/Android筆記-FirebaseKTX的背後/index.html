@@ -20,18 +20,20 @@
     var CONFIG = {"hostname":"mrnegativetw.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="I&#39;m afraid of HARDWARE. Don&#39;t scare me.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="TxW Tech Studio">
-<meta property="og:url" content="https://mrnegativetw.github.io/categories/Windows/index.html">
+  <meta name="description" content="今天在移動 Firebase 的 dependencies 到 *-ktx 時發現了些東西。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android 筆記 - Firebase KTX 的背後">
+<meta property="og:url" content="https://mrnegativetw.github.io/Android-%E7%AD%86%E8%A8%98/Android%E7%AD%86%E8%A8%98-FirebaseKTX%E7%9A%84%E8%83%8C%E5%BE%8C/index.html">
 <meta property="og:site_name" content="TxW Tech Studio">
-<meta property="og:description" content="I&#39;m afraid of HARDWARE. Don&#39;t scare me.">
+<meta property="og:description" content="今天在移動 Firebase 的 dependencies 到 *-ktx 時發現了些東西。">
 <meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2020-09-05T02:00:00.000Z">
+<meta property="article:modified_time" content="2020-09-05T08:24:15.366Z">
 <meta property="article:author" content="Trevor Wu">
 <meta property="article:tag" content="txw">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://mrnegativetw.github.io/categories/Windows/">
+<link rel="canonical" href="https://mrnegativetw.github.io/Android-%E7%AD%86%E8%A8%98/Android%E7%AD%86%E8%A8%98-FirebaseKTX%E7%9A%84%E8%83%8C%E5%BE%8C/">
 
 
 <script id="page-configurations">
@@ -39,12 +41,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-tw'
   };
 </script>
 
-  <title>Category: Windows | TxW Tech Studio</title>
+  <title>Android 筆記 - Firebase KTX 的背後 | TxW Tech Studio</title>
   
 
 
@@ -148,134 +150,113 @@
         <div class="content-wrap">
           
 
-          <div class="content category">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">Windows
-          <small>Category</small>
-        </h2>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-tw">
+    <link itemprop="mainEntityOfPage" href="https://mrnegativetw.github.io/Android-%E7%AD%86%E8%A8%98/Android%E7%AD%86%E8%A8%98-FirebaseKTX%E7%9A%84%E8%83%8C%E5%BE%8C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Trevor Wu">
+      <meta itemprop="description" content="I'm afraid of HARDWARE. Don't scare me.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TxW Tech Studio">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Android 筆記 - Firebase KTX 的背後
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-09-05 10:00:00" itemprop="dateCreated datePublished" datetime="2020-09-05T10:00:00+08:00">2020-09-05</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android-%E7%AD%86%E8%A8%98/" itemprop="url" rel="index"><span itemprop="name">Android 筆記</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2020</span>
+        <p>今天在移動 Firebase 的 dependencies 到 *-ktx 時發現了些東西。</p>
+<a id="more"></a>
+<p>事情是這樣的，Firebase 發布 *-ktx 的 Android SDK 好一段時間了，但我開始做這專案時還是 java 的版本，直到這幾天我才想把 dependencies 全部移動到 *-ktx 上，然後移著移著就發現了 ktx 好像只是包上糖衣的 java？</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>改 dependencies 首先就是改 build.gradle(app)，基本上加上 -ktx 就完成了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; Java</span><br><span class="line">com.google.firebase:firebase-firestore:21.6.0</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; Kotlin</span><br><span class="line">com.google.firebase:firebase-firestore-ktx:21.6.0</span><br></pre></td></tr></table></figure>
+
+<p>第二步就是改 code，這邊開始我就發現了些問題，把 java 版本的 SDK 注解掉之後 Code 竟然沒跳錯誤？咦？</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Java</span></span><br><span class="line"><span class="comment">// 照理來說換個 SDK 這裡就應該跳錯誤了</span></span><br><span class="line">db = FirebaseFirestore.getInstanse()</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Kotlin</span></span><br><span class="line"><span class="keyword">val</span> db = Firebase.firestore</span><br></pre></td></tr></table></figure>
+
+<h1 id="拆起來各位"><a href="#拆起來各位" class="headerlink" title="拆起來各位"></a>拆起來各位</h1><p>Intellij IDEA 的編輯器有個好用的功能， <code>Ctrl</code>/<code>Command</code> + <code>B</code> 按下去，源碼可以直接抓出來給你看，從哪邊引用的都一清二楚。</p>
+<div class="note default">
+            <p>內容 </p>
+          </div>
+<div class="note primary">
+            <p>內容 </p>
+          </div>
+<div class="note success">
+            <p>內容 </p>
+          </div>
+<div class="note info">
+            <p>內容 </p>
+          </div>
+<div class="note warning">
+            <p>內容 </p>
+          </div>
+<div class="note danger">
+            <p>內容 </p>
+          </div>
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-03-21T10:00:00+08:00"
-              content="2020-03-21">
-          03-21
-        </time>
-      </div>
+      <footer class="post-footer">
 
-      <div class="post-title">
-          <a class="post-title-link" href="/Windows/%E6%8A%80%E5%B7%A7/Windows-%E7%94%A8Hyper%E5%8F%96%E4%BB%A3%E9%86%9C%E9%99%8B%E7%9A%84PowerShell/" itemprop="url">
-            <span itemprop="name">Windows - 用 Hyper 取代醜陋的 PowerShell</span>
-          </a>
-      </div>
+        
 
-    </header>
-  </article>
-    <div class="collection-year">
-      <span class="collection-header">2018</span>
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/%E9%96%8B%E7%AE%B1/%E9%96%8B%E7%AE%B1-SamsungEvoPlus%E8%A8%98%E6%86%B6%E5%8D%A1%E5%BE%AE%E9%96%8B%E7%AE%B1/" rel="prev" title="Samsung EVO Plus 系列記憶卡微開箱">
+      <i class="fa fa-chevron-left"></i> Samsung EVO Plus 系列記憶卡微開箱
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2018-09-16T10:00:00+08:00"
-              content="2018-09-16">
-          09-16
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/Windows/%E6%8A%80%E5%B7%A7/Windows-%E5%88%AA%E9%99%A4%E4%B8%8D%E8%A6%81%E7%9A%84%E7%B6%B2%E8%B7%AF/" itemprop="url">
-            <span itemprop="name">Windows - 刪除不要的網路</span>
-          </a>
-      </div>
-
-    </header>
+      </footer>
+    
   </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2018-09-07T10:00:00+08:00"
-              content="2018-09-07">
-          09-07
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/Windows/%E6%8A%80%E5%B7%A7/Windows-%E5%8F%B3%E9%8D%B5%E9%96%8B%E5%95%9F%E5%91%BD%E4%BB%A4%E6%8F%90%E7%A4%BA%E5%AD%97%E5%85%83%E5%8F%8APowerShell/" itemprop="url">
-            <span itemprop="name">Windows 隱藏密技 - 右鍵開啟命令提示字元及 PowerShell</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2018-08-22T22:54:55+08:00"
-              content="2018-08-22">
-          08-22
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/Windows/%E7%B6%AD%E4%BF%AE/Windows-%E4%BF%AE%E5%BE%A9Windows10%E7%9A%84%E9%96%8B%E5%A7%8B%E5%8A%9F%E8%83%BD%E7%A3%9A/" itemprop="url">
-            <span itemprop="name">Windows - 修復 Windows 10 的開始功能磚</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2018-08-07T10:00:00+08:00"
-              content="2018-08-07">
-          08-07
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/Windows/%E6%8A%80%E5%B7%A7/Windows-%E5%8F%96%E5%BE%97Windows10%E9%8E%96%E5%AE%9A%E7%95%AB%E9%9D%A2%E6%A1%8C%E5%B8%83/" itemprop="url">
-            <span itemprop="name">Windows - 取得 Windows 10 鎖定畫面桌布</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-    </div>
-  </div>
   
   
-  
-
   
 
 
@@ -328,6 +309,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#正文"><span class="nav-number">1.</span> <span class="nav-text">正文</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#拆起來各位"><span class="nav-number">2.</span> <span class="nav-text">拆起來各位</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
