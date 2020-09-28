@@ -20,20 +20,20 @@
     var CONFIG = {"hostname":"mrnegativetw.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="IntArray 若是直接 print 會得到一串類似這樣的字串 [I@4783da3f">
+  <meta name="description" content="Gitea 說明文件實在是寫得不太好，弄了一小段時間才成功裝上 Raspberry Pi。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Kotlin 筆記 - 印出 IntArray 的內容">
-<meta property="og:url" content="https://mrnegativetw.github.io/Kotlin-%E7%AD%86%E8%A8%98/Kotlin%E7%AD%86%E8%A8%98-%E5%8D%B0%E5%87%BAIntArray%E7%9A%84%E5%85%A7%E5%AE%B9/index.html">
+<meta property="og:title" content="在 Raspberry Pi 2B 上架設 Gitea">
+<meta property="og:url" content="https://mrnegativetw.github.io/%E6%9E%B6%E8%A8%AD%E6%95%99%E5%AD%B8/%E6%9E%B6%E8%A8%AD%E6%95%99%E5%AD%B8-Gitea/index.html">
 <meta property="og:site_name" content="TxW Tech Studio">
-<meta property="og:description" content="IntArray 若是直接 print 會得到一串類似這樣的字串 [I@4783da3f">
+<meta property="og:description" content="Gitea 說明文件實在是寫得不太好，弄了一小段時間才成功裝上 Raspberry Pi。">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2020-03-06T02:00:00.000Z">
-<meta property="article:modified_time" content="2020-03-06T14:46:03.330Z">
+<meta property="article:published_time" content="2020-09-28T17:02:54.399Z">
+<meta property="article:modified_time" content="2020-09-28T17:34:05.562Z">
 <meta property="article:author" content="Trevor Wu">
 <meta property="article:tag" content="txw">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://mrnegativetw.github.io/Kotlin-%E7%AD%86%E8%A8%98/Kotlin%E7%AD%86%E8%A8%98-%E5%8D%B0%E5%87%BAIntArray%E7%9A%84%E5%85%A7%E5%AE%B9/">
+<link rel="canonical" href="https://mrnegativetw.github.io/%E6%9E%B6%E8%A8%AD%E6%95%99%E5%AD%B8/%E6%9E%B6%E8%A8%AD%E6%95%99%E5%AD%B8-Gitea/">
 
 
 <script id="page-configurations">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>Kotlin 筆記 - 印出 IntArray 的內容 | TxW Tech Studio</title>
+  <title>在 Raspberry Pi 2B 上架設 Gitea | TxW Tech Studio</title>
   
 
 
@@ -157,7 +157,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-tw">
-    <link itemprop="mainEntityOfPage" href="https://mrnegativetw.github.io/Kotlin-%E7%AD%86%E8%A8%98/Kotlin%E7%AD%86%E8%A8%98-%E5%8D%B0%E5%87%BAIntArray%E7%9A%84%E5%85%A7%E5%AE%B9/">
+    <link itemprop="mainEntityOfPage" href="https://mrnegativetw.github.io/%E6%9E%B6%E8%A8%AD%E6%95%99%E5%AD%B8/%E6%9E%B6%E8%A8%AD%E6%95%99%E5%AD%B8-Gitea/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -170,7 +170,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Kotlin 筆記 - 印出 IntArray 的內容
+          在 Raspberry Pi 2B 上架設 Gitea
         </h1>
 
         <div class="post-meta">
@@ -180,7 +180,7 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2020-03-06 10:00:00" itemprop="dateCreated datePublished" datetime="2020-03-06T10:00:00+08:00">2020-03-06</time>
+              <time title="Created: 2020-09-29 01:02:54" itemprop="dateCreated datePublished" datetime="2020-09-29T01:02:54+08:00">2020-09-29</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -188,7 +188,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Kotlin-%E7%AD%86%E8%A8%98/" itemprop="url" rel="index"><span itemprop="name">Kotlin 筆記</span></a>
+                  <a href="/categories/%E6%9E%B6%E8%A8%AD%E6%95%99%E5%AD%B8/" itemprop="url" rel="index"><span itemprop="name">架設教學</span></a>
                 </span>
             </span>
 
@@ -203,13 +203,52 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>IntArray 若是直接 print 會得到一串類似這樣的字串 <code>[I@4783da3f</code></p>
+        <p>Gitea 說明文件實在是寫得不太好，弄了一小段時間才成功裝上 Raspberry Pi。</p>
 <a id="more"></a>
-<h1 id="問題範例"><a href="#問題範例" class="headerlink" title="問題範例"></a>問題範例</h1><p>IntArray 若直接使用 print() 印出，會產生一坨奇怪的東西。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> list = intArrayOf(<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>)</span><br><span class="line">println(list)</span><br><span class="line"><span class="comment">// 印出 I@[4783da3f</span></span><br></pre></td></tr></table></figure>
+<p>中文版文件爛，英文也不是很好，自己 try and error 比較實在。</p>
+<h1 id="下載-Gitea"><a href="#下載-Gitea" class="headerlink" title="下載 Gitea"></a>下載 Gitea</h1><p>本教學使用 <a href="https://docs.gitea.io/en-us/install-from-binary/" target="_blank" rel="noopener">執行檔安裝</a>，直接前往 <a href="https://dl.gitea.io/gitea/" target="_blank" rel="noopener">下載頁面</a> 找到適合自己平台的。</p>
+<p>因樹莓派平台比較特殊，而且這塊樹莓派是 arm-v7 的版本，所以我試了幾個版本才找到能用的。</p>
+<ol>
+<li><p>開 Treminal，下載 <code>arm-6</code> 版本的執行檔，並重命名為 <code>gitea</code>，本文撰寫時為 <code>1.12.4</code> 版。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -O gitea https:&#x2F;&#x2F;dl.gitea.io&#x2F;gitea&#x2F;1.12.4&#x2F;gitea-1.12.4-linux-arm-6</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>給權限</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x gitea</span><br></pre></td></tr></table></figure>
 
-<h1 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h1><p>這時只要加上 <code>contentToString()</code> 即可將 IntArray 正常印出。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">println(list.contentToString())</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="安裝-MySQL"><a href="#安裝-MySQL" class="headerlink" title="安裝 MySQL"></a>安裝 MySQL</h1><p>Gitea 還需要 SQL 才能正常運作，所以就裝個很常見的 MySQL 給他用，然後因為都是在本機端執行，所以可以略過官方說明文件說的一大堆步驟。</p>
+<ol>
+<li><p>開 Terminal，更新 apt 後裝個 MySQL</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install mariadb-server</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>進入 SQL 的主控台看看，預設密碼為樹莓派的登入密碼。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mysql -u root -p</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>建立一個使用者給 gitea 用</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> <span class="string">'gitea'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'gitea'</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>開一個 <code>giteadb</code> 資料庫給 gitea 用</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> giteadb <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> <span class="string">'utf8mb4'</span> <span class="keyword">COLLATE</span> <span class="string">'utf8mb4_unicode_ci'</span>;</span><br></pre></td></tr></table></figure>
+<p>需要注意的是說明文件提到：用 <code>utf8mb4</code> 以便支援奇怪的東西</p>
+</li>
+<li><p>權限全開</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">PRIVILEGES</span> <span class="keyword">ON</span> giteadb.* <span class="keyword">TO</span> <span class="string">'gitea'</span>;</span><br><span class="line"><span class="keyword">FLUSH</span> <span class="keyword">PRIVILEGES</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>離開</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exit;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h1 id="安裝-Gitea"><a href="#安裝-Gitea" class="headerlink" title="安裝 Gitea"></a>安裝 Gitea</h1><p>進入前面下載 gitea 所在的資料夾讓他跑起來</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;gitea web</span><br></pre></td></tr></table></figure>
+
+<div class="note info">
+            <p>如果你有裝 ufw 這類的防火牆，記得將 3000 port 加入允許名單<br>以 ufw 來說，指令為：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw allow 3000</span><br></pre></td></tr></table></figure>
+          </div>
+
+<p>接著就可以使用 Web GUI 進行設定了，設定時需注意將資料庫名稱改為上述設定ㄉ的 <code>giteadb</code>，不然會噴錯說沒權限。</p>
+
     </div>
 
     
@@ -224,13 +263,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/%E4%BF%AE%E9%9B%BB%E8%85%A6/%E4%BF%AE%E9%9B%BB%E8%85%A6-%E7%BE%85%E6%8A%80M325%E6%9B%B4%E6%8F%9B%E6%AD%90%E5%A7%86%E9%BE%8D%E5%BE%AE%E5%8B%95D2FC-F-7N%E5%AF%A6%E9%8C%84/" rel="prev" title="羅技 M325 更換歐姆龍微動 D2F C-F-7N 實錄">
-      <i class="fa fa-chevron-left"></i> 羅技 M325 更換歐姆龍微動 D2F C-F-7N 實錄
+    <a href="/macOS/%E7%A8%8B%E5%BC%8F/macOS-%E4%BD%BF%E7%94%A8AlDente%E9%99%90%E5%88%B6MacBook%E5%85%85%E9%9B%BB%E9%9B%BB%E9%87%8F%E8%AE%93%E9%9B%BB%E6%B1%A0%E6%9B%B4%E5%81%A5%E5%BA%B7/" rel="prev" title="使用 AlDente 限制 MacBook 充電電量讓電池更健康">
+      <i class="fa fa-chevron-left"></i> 使用 AlDente 限制 MacBook 充電電量讓電池更健康
     </a></div>
-      <div class="post-nav-item">
-    <a href="/OpenWrt-%E7%AD%86%E8%A8%98/OpenWrt%E7%AD%86%E8%A8%98-TpLinkArcherC7V2%E7%9A%84%E7%B6%B2%E8%B7%AF%E4%BB%8B%E9%9D%A2%E8%A8%AD%E7%BD%AE/" rel="next" title="OpenWrt 筆記 - TP-Link Archer C7 V2 網路介面設置">
-      OpenWrt 筆記 - TP-Link Archer C7 V2 網路介面設置 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -289,7 +325,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#問題範例"><span class="nav-number">1.</span> <span class="nav-text">問題範例</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解法"><span class="nav-number">2.</span> <span class="nav-text">解法</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#下載-Gitea"><span class="nav-number">1.</span> <span class="nav-text">下載 Gitea</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安裝-MySQL"><span class="nav-number">2.</span> <span class="nav-text">安裝 MySQL</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安裝-Gitea"><span class="nav-number">3.</span> <span class="nav-text">安裝 Gitea</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
