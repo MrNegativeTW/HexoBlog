@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="zh-tw">
+<html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.2.0">
+<meta name="generator" content="Hexo 5.3.0">
+
+
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -13,14 +15,14 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
-<script id="hexo-configurations">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css">
+
+<script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"mrnegativetw.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"mrnegativetw.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.2.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"${hits} 找到 ${time} 個結果","hits":"找到 ${hits} 個結果"}};
   </script>
-
-  <meta name="description" content="I&#39;m afraid of HARDWARE. Don&#39;t scare me.">
+<meta name="description" content="I&#39;m afraid of HARDWARE. Don&#39;t scare me.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="TxW Tech Studio">
 <meta property="og:url" content="https://mrnegativetw.github.io/page/5/index.html">
@@ -31,72 +33,82 @@
 <meta property="article:tag" content="txw">
 <meta name="twitter:card" content="summary">
 
+
 <link rel="canonical" href="https://mrnegativetw.github.io/page/5/">
 
 
-<script id="page-configurations">
+<script class="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
     isHome : true,
     isPost : false,
-    lang   : 'zh-tw'
+    lang   : 'zh-TW'
   };
 </script>
-
-  <title>TxW Tech Studio</title>
+<title>TxW Tech Studio</title>
   
-
-
 
 
 
 
   <noscript>
   <style>
-  .use-motion .brand,
+  body { margin-top: 2rem; }
+
   .use-motion .menu-item,
-  .sidebar-inner,
+  .use-motion .sidebar,
   .use-motion .post-block,
   .use-motion .pagination,
   .use-motion .comments,
   .use-motion .post-header,
   .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
 
   .use-motion .site-title,
-  .use-motion .site-subtitle {
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
     opacity: initial;
     top: initial;
   }
 
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
   </style>
 </noscript>
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container">
-    <div class="headband"></div>
+  <div class="headband"></div>
 
+  <main class="main">
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+    <div class="toggle" aria-label="切換導航欄" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
   <div class="site-meta">
 
     <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
+      <i class="logo-line"></i>
       <h1 class="site-title">TxW Tech Studio</h1>
-      <span class="logo-line-after"><i></i></span>
+      <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">什麼都寫 什麼都不奇怪</p>
   </div>
@@ -109,24 +121,11 @@
 
 
 
-
 <nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
-
-  </li>
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a></li>
   </ul>
 </nav>
 
@@ -134,26 +133,98 @@
 
 
 </div>
-    </header>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
 
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Trevor Wu"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Trevor Wu</p>
+  <div class="site-description" itemprop="description">I'm afraid of HARDWARE. Don't scare me.</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">50</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/MrNegativeTW" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;MrNegativeTW" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/mrnegativetw" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;mrnegativetw" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
+      </span>
   </div>
 
 
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
 
-          <div class="content index posts-expand">
-            
-      
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-tw">
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://mrnegativetw.github.io/Python-3-%E7%AD%86%E8%A8%98/Flask/Python3%E7%AD%86%E8%A8%98-%E7%94%A8Flask%E7%9A%84url_for%E9%80%A3%E7%B5%90%E5%88%B0static%E4%B8%AD%E7%9A%84%E5%AD%90%E8%B3%87%E6%96%99%E5%A4%BE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -167,34 +238,42 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/Python-3-%E7%AD%86%E8%A8%98/Flask/Python3%E7%AD%86%E8%A8%98-%E7%94%A8Flask%E7%9A%84url_for%E9%80%A3%E7%B5%90%E5%88%B0static%E4%B8%AD%E7%9A%84%E5%AD%90%E8%B3%87%E6%96%99%E5%A4%BE/" class="post-title-link" itemprop="url">Python 3 筆記 - 用 Flask 的 url_for 連結到 static 中的子資料夾</a>
+          <a href="/Python-3-%E7%AD%86%E8%A8%98/Flask/Python3%E7%AD%86%E8%A8%98-%E7%94%A8Flask%E7%9A%84url_for%E9%80%A3%E7%B5%90%E5%88%B0static%E4%B8%AD%E7%9A%84%E5%AD%90%E8%B3%87%E6%96%99%E5%A4%BE/" class="post-title-link" itemprop="url">Python 3 筆記 - 用 Flask 的 url_for 連結到 static 中的子資料夾</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
 
-              <time title="Created: 2018-09-01 10:00:00" itemprop="dateCreated datePublished" datetime="2018-09-01T10:00:00+08:00">2018-09-01</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python-3-%E7%AD%86%E8%A8%98/" itemprop="url" rel="index"><span itemprop="name">Python 3 筆記</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python-3-%E7%AD%86%E8%A8%98/Flask/" itemprop="url" rel="index"><span itemprop="name">Flask</span></a>
-                </span>
-            </span>
+      <time title="創建時間：2018-09-01 10:00:00" itemprop="dateCreated datePublished" datetime="2018-09-01T10:00:00+08:00">2018-09-01</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新於</span>
+        <time title="修改時間：2020-03-06 22:26:34" itemprop="dateModified" datetime="2020-03-06T22:26:34+08:00">2020-03-06</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python-3-%E7%AD%86%E8%A8%98/" itemprop="url" rel="index"><span itemprop="name">Python 3 筆記</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python-3-%E7%AD%86%E8%A8%98/Flask/" itemprop="url" rel="index"><span itemprop="name">Flask</span></a>
+        </span>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -203,13 +282,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <p>我知道，標題唸起來很饒舌…<br>怪了，怎麼用 <code>url_for</code> 指定了路徑，卻還是抓不到檔案呢？</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/Python-3-%E7%AD%86%E8%A8%98/Flask/Python3%E7%AD%86%E8%A8%98-%E7%94%A8Flask%E7%9A%84url_for%E9%80%A3%E7%B5%90%E5%88%B0static%E4%B8%AD%E7%9A%84%E5%AD%90%E8%B3%87%E6%96%99%E5%A4%BE/#more" rel="contents">
-                Read more &raquo;
+                閱讀全文 &raquo;
               </a>
             </div>
           <!--/noindex-->
@@ -220,18 +297,25 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-tw">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://mrnegativetw.github.io/Windows/%E7%B6%AD%E4%BF%AE/Windows-%E4%BF%AE%E5%BE%A9Windows10%E7%9A%84%E9%96%8B%E5%A7%8B%E5%8A%9F%E8%83%BD%E7%A3%9A/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -245,34 +329,42 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/Windows/%E7%B6%AD%E4%BF%AE/Windows-%E4%BF%AE%E5%BE%A9Windows10%E7%9A%84%E9%96%8B%E5%A7%8B%E5%8A%9F%E8%83%BD%E7%A3%9A/" class="post-title-link" itemprop="url">Windows - 修復 Windows 10 的開始功能磚</a>
+          <a href="/Windows/%E7%B6%AD%E4%BF%AE/Windows-%E4%BF%AE%E5%BE%A9Windows10%E7%9A%84%E9%96%8B%E5%A7%8B%E5%8A%9F%E8%83%BD%E7%A3%9A/" class="post-title-link" itemprop="url">Windows - 修復 Windows 10 的開始功能磚</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
 
-              <time title="Created: 2018-08-22 22:54:55" itemprop="dateCreated datePublished" datetime="2018-08-22T22:54:55+08:00">2018-08-22</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Windows/" itemprop="url" rel="index"><span itemprop="name">Windows</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Windows/%E7%B6%AD%E4%BF%AE/" itemprop="url" rel="index"><span itemprop="name">維修</span></a>
-                </span>
-            </span>
+      <time title="創建時間：2018-08-22 22:54:55" itemprop="dateCreated datePublished" datetime="2018-08-22T22:54:55+08:00">2018-08-22</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新於</span>
+        <time title="修改時間：2020-03-06 22:26:34" itemprop="dateModified" datetime="2020-03-06T22:26:34+08:00">2020-03-06</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Windows/" itemprop="url" rel="index"><span itemprop="name">Windows</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Windows/%E7%B6%AD%E4%BF%AE/" itemprop="url" rel="index"><span itemprop="name">維修</span></a>
+        </span>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -281,13 +373,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <p>升級的 Windows 10 比較容易出現這種 bug，不管是拖曳、刪除、加入等等，都會使開始功能表當機，就算沒當機，電腦重開機之後也回恢復到初始狀態，這就是磚資料庫受損啦！</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/Windows/%E7%B6%AD%E4%BF%AE/Windows-%E4%BF%AE%E5%BE%A9Windows10%E7%9A%84%E9%96%8B%E5%A7%8B%E5%8A%9F%E8%83%BD%E7%A3%9A/#more" rel="contents">
-                Read more &raquo;
+                閱讀全文 &raquo;
               </a>
             </div>
           <!--/noindex-->
@@ -298,18 +388,25 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-tw">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://mrnegativetw.github.io/Hexo-%E6%9E%B6%E8%A8%AD%E7%9B%B8%E9%97%9C/%E6%96%87%E7%AB%A0%E9%A1%9E/Hexo%E6%92%B0%E5%AF%AB%E6%8A%80%E5%B7%A7-%E5%A2%9E%E5%8A%A0%E9%86%92%E7%9B%AE%E6%8F%90%E9%86%92%E5%8D%80%E5%A1%8A%E5%A2%9E%E5%8A%A0%E6%96%87%E7%AB%A0%E5%8F%AF%E8%AE%80%E6%80%A7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -323,34 +420,42 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/Hexo-%E6%9E%B6%E8%A8%AD%E7%9B%B8%E9%97%9C/%E6%96%87%E7%AB%A0%E9%A1%9E/Hexo%E6%92%B0%E5%AF%AB%E6%8A%80%E5%B7%A7-%E5%A2%9E%E5%8A%A0%E9%86%92%E7%9B%AE%E6%8F%90%E9%86%92%E5%8D%80%E5%A1%8A%E5%A2%9E%E5%8A%A0%E6%96%87%E7%AB%A0%E5%8F%AF%E8%AE%80%E6%80%A7/" class="post-title-link" itemprop="url">Hexo 撰寫技巧 - 增加醒目提醒區塊增加文章可讀性</a>
+          <a href="/Hexo-%E6%9E%B6%E8%A8%AD%E7%9B%B8%E9%97%9C/%E6%96%87%E7%AB%A0%E9%A1%9E/Hexo%E6%92%B0%E5%AF%AB%E6%8A%80%E5%B7%A7-%E5%A2%9E%E5%8A%A0%E9%86%92%E7%9B%AE%E6%8F%90%E9%86%92%E5%8D%80%E5%A1%8A%E5%A2%9E%E5%8A%A0%E6%96%87%E7%AB%A0%E5%8F%AF%E8%AE%80%E6%80%A7/" class="post-title-link" itemprop="url">Hexo 撰寫技巧 - 增加醒目提醒區塊增加文章可讀性</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
 
-              <time title="Created: 2018-08-18 10:00:00" itemprop="dateCreated datePublished" datetime="2018-08-18T10:00:00+08:00">2018-08-18</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo-%E6%9E%B6%E8%A8%AD%E7%9B%B8%E9%97%9C/" itemprop="url" rel="index"><span itemprop="name">Hexo 架設相關</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo-%E6%9E%B6%E8%A8%AD%E7%9B%B8%E9%97%9C/%E6%96%87%E7%AB%A0%E9%A1%9E/" itemprop="url" rel="index"><span itemprop="name">文章類</span></a>
-                </span>
-            </span>
+      <time title="創建時間：2018-08-18 10:00:00" itemprop="dateCreated datePublished" datetime="2018-08-18T10:00:00+08:00">2018-08-18</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新於</span>
+        <time title="修改時間：2020-12-26 09:05:44" itemprop="dateModified" datetime="2020-12-26T09:05:44+08:00">2020-12-26</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Hexo-%E6%9E%B6%E8%A8%AD%E7%9B%B8%E9%97%9C/" itemprop="url" rel="index"><span itemprop="name">Hexo 架設相關</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Hexo-%E6%9E%B6%E8%A8%AD%E7%9B%B8%E9%97%9C/%E6%96%87%E7%AB%A0%E9%A1%9E/" itemprop="url" rel="index"><span itemprop="name">文章類</span></a>
+        </span>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -359,13 +464,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <p>純 Markdown 有時候真的會感到不夠用，有些想要特別註解、提醒的地方，常常會讓我陷入猶豫，到底要用 <code>****</code> 還是 <code>&gt;</code> ，然後就是這麼剛好，在爬 Python 問題時，看到有人的 Hexo 部落格放了各種彩色醒目大框框，這才驚覺，原來這種框框不只是 GitBook v2 特有的，繼續爬文之下，原來這東西叫做 Bootstrap Callout ，至於如何使用，就繼續看下去吧。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/Hexo-%E6%9E%B6%E8%A8%AD%E7%9B%B8%E9%97%9C/%E6%96%87%E7%AB%A0%E9%A1%9E/Hexo%E6%92%B0%E5%AF%AB%E6%8A%80%E5%B7%A7-%E5%A2%9E%E5%8A%A0%E9%86%92%E7%9B%AE%E6%8F%90%E9%86%92%E5%8D%80%E5%A1%8A%E5%A2%9E%E5%8A%A0%E6%96%87%E7%AB%A0%E5%8F%AF%E8%AE%80%E6%80%A7/#more" rel="contents">
-                Read more &raquo;
+                閱讀全文 &raquo;
               </a>
             </div>
           <!--/noindex-->
@@ -376,18 +479,25 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-tw">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://mrnegativetw.github.io/Hexo-%E6%9E%B6%E8%A8%AD%E7%9B%B8%E9%97%9C/%E7%AB%99%E9%BB%9E%E9%A1%9E/Hexo%E6%9E%B6%E8%A8%AD%E6%95%99%E5%AD%B8-%E9%96%B1%E8%AE%80%E6%9B%B4%E5%A4%9A/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -401,34 +511,42 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/Hexo-%E6%9E%B6%E8%A8%AD%E7%9B%B8%E9%97%9C/%E7%AB%99%E9%BB%9E%E9%A1%9E/Hexo%E6%9E%B6%E8%A8%AD%E6%95%99%E5%AD%B8-%E9%96%B1%E8%AE%80%E6%9B%B4%E5%A4%9A/" class="post-title-link" itemprop="url">Hexo 架設教學 - 閱讀更多</a>
+          <a href="/Hexo-%E6%9E%B6%E8%A8%AD%E7%9B%B8%E9%97%9C/%E7%AB%99%E9%BB%9E%E9%A1%9E/Hexo%E6%9E%B6%E8%A8%AD%E6%95%99%E5%AD%B8-%E9%96%B1%E8%AE%80%E6%9B%B4%E5%A4%9A/" class="post-title-link" itemprop="url">Hexo 架設教學 - 閱讀更多</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
 
-              <time title="Created: 2018-08-08 10:00:00" itemprop="dateCreated datePublished" datetime="2018-08-08T10:00:00+08:00">2018-08-08</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo-%E6%9E%B6%E8%A8%AD%E7%9B%B8%E9%97%9C/" itemprop="url" rel="index"><span itemprop="name">Hexo 架設相關</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo-%E6%9E%B6%E8%A8%AD%E7%9B%B8%E9%97%9C/%E7%AB%99%E9%BB%9E%E9%A1%9E/" itemprop="url" rel="index"><span itemprop="name">站點類</span></a>
-                </span>
-            </span>
+      <time title="創建時間：2018-08-08 10:00:00" itemprop="dateCreated datePublished" datetime="2018-08-08T10:00:00+08:00">2018-08-08</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新於</span>
+        <time title="修改時間：2020-12-26 09:06:12" itemprop="dateModified" datetime="2020-12-26T09:06:12+08:00">2020-12-26</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Hexo-%E6%9E%B6%E8%A8%AD%E7%9B%B8%E9%97%9C/" itemprop="url" rel="index"><span itemprop="name">Hexo 架設相關</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Hexo-%E6%9E%B6%E8%A8%AD%E7%9B%B8%E9%97%9C/%E7%AB%99%E9%BB%9E%E9%A1%9E/" itemprop="url" rel="index"><span itemprop="name">站點類</span></a>
+        </span>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -437,13 +555,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <p>文章預覽，也就是常見的閱讀更多，方便讓讀者用最快的方式了解這邊文章在說什麼，而且可以讓版面更簡潔美觀。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/Hexo-%E6%9E%B6%E8%A8%AD%E7%9B%B8%E9%97%9C/%E7%AB%99%E9%BB%9E%E9%A1%9E/Hexo%E6%9E%B6%E8%A8%AD%E6%95%99%E5%AD%B8-%E9%96%B1%E8%AE%80%E6%9B%B4%E5%A4%9A/#more" rel="contents">
-                Read more &raquo;
+                閱讀全文 &raquo;
               </a>
             </div>
           <!--/noindex-->
@@ -454,18 +570,25 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-tw">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://mrnegativetw.github.io/Windows/%E6%8A%80%E5%B7%A7/Windows-%E5%8F%96%E5%BE%97Windows10%E9%8E%96%E5%AE%9A%E7%95%AB%E9%9D%A2%E6%A1%8C%E5%B8%83/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -479,34 +602,42 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/Windows/%E6%8A%80%E5%B7%A7/Windows-%E5%8F%96%E5%BE%97Windows10%E9%8E%96%E5%AE%9A%E7%95%AB%E9%9D%A2%E6%A1%8C%E5%B8%83/" class="post-title-link" itemprop="url">Windows - 取得 Windows 10 鎖定畫面桌布</a>
+          <a href="/Windows/%E6%8A%80%E5%B7%A7/Windows-%E5%8F%96%E5%BE%97Windows10%E9%8E%96%E5%AE%9A%E7%95%AB%E9%9D%A2%E6%A1%8C%E5%B8%83/" class="post-title-link" itemprop="url">Windows - 取得 Windows 10 鎖定畫面桌布</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
 
-              <time title="Created: 2018-08-07 10:00:00" itemprop="dateCreated datePublished" datetime="2018-08-07T10:00:00+08:00">2018-08-07</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Windows/" itemprop="url" rel="index"><span itemprop="name">Windows</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Windows/%E6%8A%80%E5%B7%A7/" itemprop="url" rel="index"><span itemprop="name">技巧</span></a>
-                </span>
-            </span>
+      <time title="創建時間：2018-08-07 10:00:00" itemprop="dateCreated datePublished" datetime="2018-08-07T10:00:00+08:00">2018-08-07</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新於</span>
+        <time title="修改時間：2020-12-26 09:11:34" itemprop="dateModified" datetime="2020-12-26T09:11:34+08:00">2020-12-26</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Windows/" itemprop="url" rel="index"><span itemprop="name">Windows</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Windows/%E6%8A%80%E5%B7%A7/" itemprop="url" rel="index"><span itemprop="name">技巧</span></a>
+        </span>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -515,13 +646,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <p>有時候剛打開 Windows 停留在鎖定畫面，會發現鎖定畫面的桌布超級好看，可是網路上又找不到相同的圖片，那就只好從 Windows 的深層挖出來啦</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/Windows/%E6%8A%80%E5%B7%A7/Windows-%E5%8F%96%E5%BE%97Windows10%E9%8E%96%E5%AE%9A%E7%95%AB%E9%9D%A2%E6%A1%8C%E5%B8%83/#more" rel="contents">
-                Read more &raquo;
+                閱讀全文 &raquo;
               </a>
             </div>
           <!--/noindex-->
@@ -532,18 +661,25 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-tw">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://mrnegativetw.github.io/Hexo-%E6%9E%B6%E8%A8%AD%E7%9B%B8%E9%97%9C/%E7%AB%99%E9%BB%9E%E9%A1%9E/Hexo%E6%9E%B6%E8%A8%AD%E6%95%99%E5%AD%B8-%E6%96%B0%E5%A2%9Esitemap/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -557,34 +693,42 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/Hexo-%E6%9E%B6%E8%A8%AD%E7%9B%B8%E9%97%9C/%E7%AB%99%E9%BB%9E%E9%A1%9E/Hexo%E6%9E%B6%E8%A8%AD%E6%95%99%E5%AD%B8-%E6%96%B0%E5%A2%9Esitemap/" class="post-title-link" itemprop="url">Hexo 架設教學 - 新增 Sitemap</a>
+          <a href="/Hexo-%E6%9E%B6%E8%A8%AD%E7%9B%B8%E9%97%9C/%E7%AB%99%E9%BB%9E%E9%A1%9E/Hexo%E6%9E%B6%E8%A8%AD%E6%95%99%E5%AD%B8-%E6%96%B0%E5%A2%9Esitemap/" class="post-title-link" itemprop="url">Hexo 架設教學 - 新增 Sitemap</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
 
-              <time title="Created: 2018-08-06 10:00:00" itemprop="dateCreated datePublished" datetime="2018-08-06T10:00:00+08:00">2018-08-06</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo-%E6%9E%B6%E8%A8%AD%E7%9B%B8%E9%97%9C/" itemprop="url" rel="index"><span itemprop="name">Hexo 架設相關</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo-%E6%9E%B6%E8%A8%AD%E7%9B%B8%E9%97%9C/%E7%AB%99%E9%BB%9E%E9%A1%9E/" itemprop="url" rel="index"><span itemprop="name">站點類</span></a>
-                </span>
-            </span>
+      <time title="創建時間：2018-08-06 10:00:00" itemprop="dateCreated datePublished" datetime="2018-08-06T10:00:00+08:00">2018-08-06</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新於</span>
+        <time title="修改時間：2020-12-26 09:06:13" itemprop="dateModified" datetime="2020-12-26T09:06:13+08:00">2020-12-26</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Hexo-%E6%9E%B6%E8%A8%AD%E7%9B%B8%E9%97%9C/" itemprop="url" rel="index"><span itemprop="name">Hexo 架設相關</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Hexo-%E6%9E%B6%E8%A8%AD%E7%9B%B8%E9%97%9C/%E7%AB%99%E9%BB%9E%E9%A1%9E/" itemprop="url" rel="index"><span itemprop="name">站點類</span></a>
+        </span>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -593,13 +737,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <p>總之加入 Sitemap 可以被 Google 排名的更前面一些，所以加就對了</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/Hexo-%E6%9E%B6%E8%A8%AD%E7%9B%B8%E9%97%9C/%E7%AB%99%E9%BB%9E%E9%A1%9E/Hexo%E6%9E%B6%E8%A8%AD%E6%95%99%E5%AD%B8-%E6%96%B0%E5%A2%9Esitemap/#more" rel="contents">
-                Read more &raquo;
+                閱讀全文 &raquo;
               </a>
             </div>
           <!--/noindex-->
@@ -610,18 +752,25 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-tw">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://mrnegativetw.github.io/%E5%B0%8F%E7%A8%8B%E5%BC%8F/%E5%BF%AB%E9%80%9F%E5%8F%96%E5%BE%97%E8%B3%87%E6%96%99%E5%A4%BE%E5%85%A7%E6%89%80%E6%9C%89%E6%AA%94%E6%A1%88%E7%9A%84%E8%A9%B3%E7%B4%B0%E8%B3%87%E6%96%99/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -635,30 +784,38 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E5%B0%8F%E7%A8%8B%E5%BC%8F/%E5%BF%AB%E9%80%9F%E5%8F%96%E5%BE%97%E8%B3%87%E6%96%99%E5%A4%BE%E5%85%A7%E6%89%80%E6%9C%89%E6%AA%94%E6%A1%88%E7%9A%84%E8%A9%B3%E7%B4%B0%E8%B3%87%E6%96%99/" class="post-title-link" itemprop="url">快速取得資料夾內所有檔案的詳細資料</a>
+          <a href="/%E5%B0%8F%E7%A8%8B%E5%BC%8F/%E5%BF%AB%E9%80%9F%E5%8F%96%E5%BE%97%E8%B3%87%E6%96%99%E5%A4%BE%E5%85%A7%E6%89%80%E6%9C%89%E6%AA%94%E6%A1%88%E7%9A%84%E8%A9%B3%E7%B4%B0%E8%B3%87%E6%96%99/" class="post-title-link" itemprop="url">快速取得資料夾內所有檔案的詳細資料</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
 
-              <time title="Created: 2018-08-04 10:00:00" itemprop="dateCreated datePublished" datetime="2018-08-04T10:00:00+08:00">2018-08-04</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B0%8F%E7%A8%8B%E5%BC%8F/" itemprop="url" rel="index"><span itemprop="name">小程式</span></a>
-                </span>
-            </span>
+      <time title="創建時間：2018-08-04 10:00:00" itemprop="dateCreated datePublished" datetime="2018-08-04T10:00:00+08:00">2018-08-04</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新於</span>
+        <time title="修改時間：2020-03-06 22:26:34" itemprop="dateModified" datetime="2020-03-06T22:26:34+08:00">2020-03-06</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B0%8F%E7%A8%8B%E5%BC%8F/" itemprop="url" rel="index"><span itemprop="name">小程式</span></a>
+        </span>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -667,8 +824,6 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <p>因當時上課有整理大量素材的需求，所以這個小程式就這樣產生了，使用本程式可以快速取得資料夾中所有檔案的詳細資訊，加速作業進行，例如：</p>
 <ul>
 <li>快速比對素材</li>
@@ -676,7 +831,7 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/%E5%B0%8F%E7%A8%8B%E5%BC%8F/%E5%BF%AB%E9%80%9F%E5%8F%96%E5%BE%97%E8%B3%87%E6%96%99%E5%A4%BE%E5%85%A7%E6%89%80%E6%9C%89%E6%AA%94%E6%A1%88%E7%9A%84%E8%A9%B3%E7%B4%B0%E8%B3%87%E6%96%99/#more" rel="contents">
-                Read more &raquo;
+                閱讀全文 &raquo;
               </a>
             </div>
           <!--/noindex-->
@@ -687,18 +842,25 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-tw">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://mrnegativetw.github.io/%E4%BF%AE%E9%9B%BB%E8%85%A6/%E9%9B%BB%E8%85%A6%E4%B9%85%E6%B2%92%E7%94%A8%E5%87%BA%E7%8F%BEReboot%20and%20Select%20proper%20boot%20device/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -712,30 +874,38 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E4%BF%AE%E9%9B%BB%E8%85%A6/%E9%9B%BB%E8%85%A6%E4%B9%85%E6%B2%92%E7%94%A8%E5%87%BA%E7%8F%BEReboot%20and%20Select%20proper%20boot%20device/" class="post-title-link" itemprop="url">電腦久沒用出現 Reboot and Select proper boot device</a>
+          <a href="/%E4%BF%AE%E9%9B%BB%E8%85%A6/%E9%9B%BB%E8%85%A6%E4%B9%85%E6%B2%92%E7%94%A8%E5%87%BA%E7%8F%BEReboot%20and%20Select%20proper%20boot%20device/" class="post-title-link" itemprop="url">電腦久沒用出現 Reboot and Select proper boot device</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
 
-              <time title="Created: 2018-08-03 10:00:00" itemprop="dateCreated datePublished" datetime="2018-08-03T10:00:00+08:00">2018-08-03</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BF%AE%E9%9B%BB%E8%85%A6/" itemprop="url" rel="index"><span itemprop="name">修電腦</span></a>
-                </span>
-            </span>
+      <time title="創建時間：2018-08-03 10:00:00" itemprop="dateCreated datePublished" datetime="2018-08-03T10:00:00+08:00">2018-08-03</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新於</span>
+        <time title="修改時間：2020-03-06 22:26:34" itemprop="dateModified" datetime="2020-03-06T22:26:34+08:00">2020-03-06</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%BF%AE%E9%9B%BB%E8%85%A6/" itemprop="url" rel="index"><span itemprop="name">修電腦</span></a>
+        </span>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -744,13 +914,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <p>前幾天朋友剛從待了兩個月的澎湖回來，結果不知道是不是太久沒用電腦的關係，一開機就出現了<code>Reboot and Select proper boot device</code>，後來他不知道去哪一間店花了 300 檢測，店家說法是：「需要重灌喔，你的 SSD 壞了」，聽到之後嚇的馬上跑來找我，畢竟很多資料都還放在 SSD 裡面，他不希望重灌。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/%E4%BF%AE%E9%9B%BB%E8%85%A6/%E9%9B%BB%E8%85%A6%E4%B9%85%E6%B2%92%E7%94%A8%E5%87%BA%E7%8F%BEReboot%20and%20Select%20proper%20boot%20device/#more" rel="contents">
-                Read more &raquo;
+                閱讀全文 &raquo;
               </a>
             </div>
           <!--/noindex-->
@@ -761,18 +929,25 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-tw">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://mrnegativetw.github.io/Hexo-%E6%9E%B6%E8%A8%AD%E7%9B%B8%E9%97%9C/%E7%AB%99%E9%BB%9E%E9%A1%9E/Hexo%E6%9E%B6%E8%A8%AD%E8%B3%87%E6%BA%90-%E7%94%A8Onedrive%E7%95%B6%E5%9C%96%E5%BA%8A/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -786,34 +961,42 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/Hexo-%E6%9E%B6%E8%A8%AD%E7%9B%B8%E9%97%9C/%E7%AB%99%E9%BB%9E%E9%A1%9E/Hexo%E6%9E%B6%E8%A8%AD%E8%B3%87%E6%BA%90-%E7%94%A8Onedrive%E7%95%B6%E5%9C%96%E5%BA%8A/" class="post-title-link" itemprop="url">Hexo 架設資源 - 用 Onedrive 當圖床</a>
+          <a href="/Hexo-%E6%9E%B6%E8%A8%AD%E7%9B%B8%E9%97%9C/%E7%AB%99%E9%BB%9E%E9%A1%9E/Hexo%E6%9E%B6%E8%A8%AD%E8%B3%87%E6%BA%90-%E7%94%A8Onedrive%E7%95%B6%E5%9C%96%E5%BA%8A/" class="post-title-link" itemprop="url">Hexo 架設資源 - 用 Onedrive 當圖床</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
 
-              <time title="Created: 2018-08-02 20:48:34" itemprop="dateCreated datePublished" datetime="2018-08-02T20:48:34+08:00">2018-08-02</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo-%E6%9E%B6%E8%A8%AD%E7%9B%B8%E9%97%9C/" itemprop="url" rel="index"><span itemprop="name">Hexo 架設相關</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo-%E6%9E%B6%E8%A8%AD%E7%9B%B8%E9%97%9C/%E7%AB%99%E9%BB%9E%E9%A1%9E/" itemprop="url" rel="index"><span itemprop="name">站點類</span></a>
-                </span>
-            </span>
+      <time title="創建時間：2018-08-02 20:48:34" itemprop="dateCreated datePublished" datetime="2018-08-02T20:48:34+08:00">2018-08-02</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新於</span>
+        <time title="修改時間：2020-12-26 09:06:17" itemprop="dateModified" datetime="2020-12-26T09:06:17+08:00">2020-12-26</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Hexo-%E6%9E%B6%E8%A8%AD%E7%9B%B8%E9%97%9C/" itemprop="url" rel="index"><span itemprop="name">Hexo 架設相關</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Hexo-%E6%9E%B6%E8%A8%AD%E7%9B%B8%E9%97%9C/%E7%AB%99%E9%BB%9E%E9%A1%9E/" itemprop="url" rel="index"><span itemprop="name">站點類</span></a>
+        </span>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -822,13 +1005,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <p>這幾天在弄 Hexo 這個靜態部落格(就是你現在看的這個)，弄一弄發現「嘿 寫教學文需要圖片，我該去哪邊生圖片空間」<br>就這樣，我找了手邊現有的雲端帳號和服務，包括 GD / pCloud / Box / DropBox / OneDrive / BlogSpot 等，不過 GD 老早就收了這功能、pCloud 則是需要付費、Box 別說了、DropBox 沒看到這功能，最後在我最不想用的 OneDrive 上看到了「內嵌」，然後我的圖床就這樣定下來了</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/Hexo-%E6%9E%B6%E8%A8%AD%E7%9B%B8%E9%97%9C/%E7%AB%99%E9%BB%9E%E9%A1%9E/Hexo%E6%9E%B6%E8%A8%AD%E8%B3%87%E6%BA%90-%E7%94%A8Onedrive%E7%95%B6%E5%9C%96%E5%BA%8A/#more" rel="contents">
-                Read more &raquo;
+                閱讀全文 &raquo;
               </a>
             </div>
           <!--/noindex-->
@@ -839,18 +1020,25 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-tw">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://mrnegativetw.github.io/%E6%9E%B6%E8%A8%AD%E6%95%99%E5%AD%B8/GitLab%20Pages%E6%9E%B6%E8%A8%AD%E6%95%99%E5%AD%B8-Gitbook/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -864,30 +1052,38 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E6%9E%B6%E8%A8%AD%E6%95%99%E5%AD%B8/GitLab%20Pages%E6%9E%B6%E8%A8%AD%E6%95%99%E5%AD%B8-Gitbook/" class="post-title-link" itemprop="url">GitLab Pages 架設教學 - Gitbook</a>
+          <a href="/%E6%9E%B6%E8%A8%AD%E6%95%99%E5%AD%B8/GitLab%20Pages%E6%9E%B6%E8%A8%AD%E6%95%99%E5%AD%B8-Gitbook/" class="post-title-link" itemprop="url">GitLab Pages 架設教學 - Gitbook</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
 
-              <time title="Created: 2018-07-31 20:23:57" itemprop="dateCreated datePublished" datetime="2018-07-31T20:23:57+08:00">2018-07-31</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%9E%B6%E8%A8%AD%E6%95%99%E5%AD%B8/" itemprop="url" rel="index"><span itemprop="name">架設教學</span></a>
-                </span>
-            </span>
+      <time title="創建時間：2018-07-31 20:23:57" itemprop="dateCreated datePublished" datetime="2018-07-31T20:23:57+08:00">2018-07-31</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新於</span>
+        <time title="修改時間：2020-03-06 22:26:34" itemprop="dateModified" datetime="2020-03-06T22:26:34+08:00">2020-03-06</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%9E%B6%E8%A8%AD%E6%95%99%E5%AD%B8/" itemprop="url" rel="index"><span itemprop="name">架設教學</span></a>
+        </span>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -896,13 +1092,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <p>Gitbook，一個用來寫電子書的平台，在 V1 時非常好用，但近期改版為 V2 後，不但很多功能被拿掉，而且很多地方也改為付費制，V2 中還加入了 Space 機制，一本書就是一個 Space，免費使用者只能擁有一個公開 Space 和一個私人 Space，換言之就是使用者付費啦<br><br>可我還是很迷戀 V1，而且剛好我在 Gitbook V2 Beta 時開了兩個space，GitBook 提示我說：「欸你這樣不行」<br>就因為這兩個原因讓我爬著爬著發現 GitLab 官方文件裡面有提供架設 Gitbook 的範本，經過多方嘗試之後終於成功將V2的文章轉移過來啦！</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/%E6%9E%B6%E8%A8%AD%E6%95%99%E5%AD%B8/GitLab%20Pages%E6%9E%B6%E8%A8%AD%E6%95%99%E5%AD%B8-Gitbook/#more" rel="contents">
-                Read more &raquo;
+                閱讀全文 &raquo;
               </a>
             </div>
           <!--/noindex-->
@@ -913,24 +1107,21 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
-  
-  
+</div>
 
 
-  
+
+
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="上一頁"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
   </nav>
 
-
-
-          </div>
-          
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -939,7 +1130,7 @@
       activeClass = localStorage.getItem('comments_active') || activeClass;
     }
     if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
       if (activeTab) {
         activeTab.click();
       }
@@ -948,91 +1139,19 @@
   if (CONFIG.comments.storage) {
     window.addEventListener('tabs:click', event => {
       if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
+      const commentClass = event.target.classList[1];
       localStorage.setItem('comments_active', commentClass);
     });
   }
 </script>
-
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          Table of Contents
-        </li>
-        <li class="sidebar-nav-overview">
-          Overview
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="Trevor Wu"
-      src="/images/avatar.jpg">
-  <p class="site-author-name" itemprop="name">Trevor Wu</p>
-  <div class="site-description" itemprop="description">I'm afraid of HARDWARE. Don't scare me.</div>
 </div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">50</span>
-          <span class="site-state-item-name">posts</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">23</span>
-        <span class="site-state-item-name">categories</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="https://github.com/MrNegativeTW" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;MrNegativeTW" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://www.instagram.com/mrnegativetw" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;mrnegativetw" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
-      </span>
-  </div>
+  </main>
 
+  <footer class="footer">
+    <div class="footer-inner">
 
-
-      </div>
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
 
 <div class="copyright">
-  
   &copy; 2018 – 
   <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
@@ -1041,29 +1160,18 @@
   <span class="author" itemprop="copyrightHolder">Trevor Wu</span>
 </div>
 
-        
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
-  </div>
+    </div>
+  </footer>
 
   
-  <script src="/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
 
-<script src="/js/utils.js"></script>
+  
 
 
-<script src="/js/schemes/pisces.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
 
 
 
@@ -1073,20 +1181,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
 
 </body>
 </html>
