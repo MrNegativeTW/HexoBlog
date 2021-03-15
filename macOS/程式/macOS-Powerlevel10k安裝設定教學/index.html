@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.3.0">
+<meta name="generator" content="Hexo 5.4.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
@@ -178,7 +178,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">50</span>
+          <span class="site-state-item-count">51</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -291,13 +291,15 @@
     
     <div class="post-body" itemprop="articleBody">
         <p>教你安裝與設定比 Powerlevel9k 更強大好看的 ZSH 主題。</p>
-<a id="more"></a>
+<span id="more"></span>
 <h1 id="完工圖"><a href="#完工圖" class="headerlink" title="完工圖"></a>完工圖</h1><p><img data-src="https://imgur.com/Y3q6ui6.png"></p>
 <h1 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h1><p>先上 Repo 連結： <a target="_blank" rel="noopener" href="https://github.com/romkatv/powerlevel10k">romkatv/powerlevel10k</a></p>
 <p>官方 README 有教很多安裝方案，這邊因為我用 iTerm 2 配上 Oh My Zsh，所以本文安裝方法是透過 Oh My Zsh，首先打開你的 iTerm 2，並直接輸入：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone --depth&#x3D;1 https:&#x2F;&#x2F;github.com&#x2F;romkatv&#x2F;powerlevel10k.git $&#123;ZSH_CUSTOM:-~&#x2F;.oh-my-zsh&#x2F;custom&#125;&#x2F;themes&#x2F;powerlevel10k</span><br></pre></td></tr></table></figure>
+
 <p>之後到 <code>~/.zshrc</code> 設定一下主題：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ZSH_THEME&#x3D;&quot;powerlevel10k&#x2F;powerlevel10k&quot;</span><br></pre></td></tr></table></figure>
+
 <p>完成後你可以重開 iTerm 2 或輸入 <code>exec $SHELL</code> 來重新讀取。</p>
 <h1 id="設定l"><a href="#設定l" class="headerlink" title="設定l"></a>設定l</h1><p>接著在安裝後第一次開啟時應該會跳出這次 10k 更新的重點功能：<strong>設定精靈</strong>，引用一下原作的圖：<br><img data-src="https://raw.githubusercontent.com/romkatv/powerlevel10k-media/master/configuration-wizard.gif"></p>
 <p>如果沒有跳出設定精靈的話也可以手動輸入 <code>p10k configure</code>，設定精靈大致長這樣，每一步驟會問你不同的喜好設定，只要照畫面提示輸入 Y/N 或 1234 就可以了。<br><img data-src="https://imgur.com/D5uwcop.gif"></p>

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.3.0">
+<meta name="generator" content="Hexo 5.4.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
@@ -174,7 +174,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">50</span>
+          <span class="site-state-item-count">51</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -283,7 +283,7 @@
     
     <div class="post-body" itemprop="articleBody">
         <p>前幾天朋友剛從待了兩個月的澎湖回來，結果不知道是不是太久沒用電腦的關係，一開機就出現了<code>Reboot and Select proper boot device</code>，後來他不知道去哪一間店花了 300 檢測，店家說法是：「需要重灌喔，你的 SSD 壞了」，聽到之後嚇的馬上跑來找我，畢竟很多資料都還放在 SSD 裡面，他不希望重灌。</p>
-<a id="more"></a>
+<span id="more"></span>
 <p>「主機板抓不到開機磁區」這是我的第一個想法，因為裝黑蘋果的時候我就因為沒把開機順序調整到 Clover，所以出現了黑底紅字嚇得我屁滾尿流，也就因為這樣，我對開機順序非常敏感，</p>
 <h1 id="解決辦法"><a href="#解決辦法" class="headerlink" title="解決辦法"></a>解決辦法</h1><p>開機時按 Del 進入 Bios，首先確認主機板有抓到 SSD（如果沒抓到就調整/更換 SATA 電源線和訊號線）</p>
 <p>確認抓到之後，開始著手調整開機順序，將 <strong>第一開機順序</strong> 調整為 <code>Windows Boot Manager</code>，接著儲存並重新啟動</p>

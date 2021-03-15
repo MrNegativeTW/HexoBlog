@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.3.0">
+<meta name="generator" content="Hexo 5.4.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
@@ -177,7 +177,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">50</span>
+          <span class="site-state-item-count">51</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -286,16 +286,19 @@
     
     <div class="post-body" itemprop="articleBody">
         <p>Android 10 預設轉場動畫與先前的截然不同，這篇文章教你如何在 APP 內導入 10 的轉場動畫。</p>
-<a id="more"></a>
+<span id="more"></span>
 <h1 id="效果預覽"><a href="#效果預覽" class="headerlink" title="效果預覽"></a>效果預覽</h1><p>Android 10:<br><img data-src="https://9to5google.com/wp-content/uploads/sites/4/2019/06/android_q_beta_4_transition_1.gif" width="320"></p>
 <p>Android 9:<br><img data-src="https://9to5google.com/wp-content/uploads/sites/4/2019/06/android_q_beta_3_transition_1.gif" width="320"></p>
 <p>有沒有覺得縮放很潮？<br>雖然 Android 9 前的預設轉場還是上下滑，但人就是會犯賤，想在舊版本加入炫泡一點的東西。</p>
 <h1 id="改起來各位"><a href="#改起來各位" class="headerlink" title="改起來各位"></a>改起來各位</h1><h2 id="新增-dependencies"><a href="#新增-dependencies" class="headerlink" title="新增 dependencies"></a>新增 dependencies</h2><p>首先在 APP 等級的 <code>build.gradle</code> 加入 <code>fragment</code>。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">implementation &#39;androidx.navigation:navigation-fragment-ktx:2.3.1&#39;</span><br></pre></td></tr></table></figure>
+
 <h2 id="修改-style-xml"><a href="#修改-style-xml" class="headerlink" title="修改 style.xml"></a>修改 style.xml</h2><p>首先在 <code>style.xml</code> 中最上層加入這些東西。</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">&quot;Animation.Activity.Transition&quot;</span> <span class="attr">parent</span>=<span class="string">&quot;android:Animation.Activity&quot;</span>&gt;</span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">&quot;android:activityOpenEnterAnimation&quot;</span>&gt;</span>@anim/fragment_open_enter<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">&quot;android:activityOpenExitAnimation&quot;</span>&gt;</span>@anim/fragment_open_exit<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">&quot;android:activityCloseEnterAnimation&quot;</span>&gt;</span>@anim/fragment_close_enter<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">&quot;android:activityCloseExitAnimation&quot;</span>&gt;</span>@anim/fragment_close_exit<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p>在各主題中加入 <code>android:windowAnimationStyle</code>，並指向剛剛設定的 <code>Animation.Activity.Transition</code>。</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">&quot;AppTheme&quot;</span> <span class="attr">parent</span>=<span class="string">&quot;Theme.MaterialComponents.Light&quot;</span>&gt;</span></span><br><span class="line"><span class="xml">    <span class="comment">&lt;!-- Other Attr --&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">&quot;android:windowAnimationStyle&quot;</span>&gt;</span>@style/Animation.Activity.Transition<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p>完成，你現在有炫泡轉場動畫了</p>
 <h1 id="後記"><a href="#後記" class="headerlink" title="後記"></a>後記</h1><p>我肖想這個動畫很久了，為了這動畫我還去拆 Reddit 的 APK，然後複製貼到自己的專案。後來有天我在試 Jetpack 的 Navigation 時意外發現這個動畫已經存在於 <code>fragment</code> 套件中，我們只需引入套用即可，繞了一大圈冤忘路  。</p>
 

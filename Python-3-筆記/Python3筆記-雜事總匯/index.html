@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.3.0">
+<meta name="generator" content="Hexo 5.4.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
@@ -174,7 +174,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">50</span>
+          <span class="site-state-item-count">51</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -283,16 +283,21 @@
     
     <div class="post-body" itemprop="articleBody">
         <p>收錄一些小技巧，給我自己看。</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h1 id="指令部分"><a href="#指令部分" class="headerlink" title="指令部分"></a>指令部分</h1><h2 id="自動安裝所需的-Module"><a href="#自動安裝所需的-Module" class="headerlink" title="自動安裝所需的 Module"></a>自動安裝所需的 Module</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 匯出 Module 清單</span><br><span class="line">python -m pip freeze &gt; requirements.txt</span><br><span class="line"></span><br><span class="line"># 安裝 Module 清單內的東西</span><br><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></table></figure>
+
 <h2 id="找不到-pip-指令"><a href="#找不到-pip-指令" class="headerlink" title="找不到 pip 指令"></a>找不到 pip 指令</h2><p>有時候會說找不到 <code>pip</code>，那就在前面加個 <code>python -m</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m pip install ...</span><br></pre></td></tr></table></figure>
+
 <h1 id="畫面部分"><a href="#畫面部分" class="headerlink" title="畫面部分"></a>畫面部分</h1><h2 id="input-不換行"><a href="#input-不換行" class="headerlink" title="input() 不換行"></a>input() 不換行</h2><p>加個 <code>end=&#39;&#39;</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">&#x27;YOUR TEXT&#x27;</span>, end=<span class="string">&#x27;&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
 <h2 id="清空終端機畫面"><a href="#清空終端機畫面" class="headerlink" title="清空終端機畫面"></a>清空終端機畫面</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.system(<span class="string">&#x27;clear&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
+
 <h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><h2 id="陣列中隨機取值"><a href="#陣列中隨機取值" class="headerlink" title="陣列中隨機取值"></a>陣列中隨機取值</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line">random.choice(YOURNAME)</span><br></pre></td></tr></table></figure>
+
 <h2 id="產生-Secret-Key"><a href="#產生-Secret-Key" class="headerlink" title="產生 Secret Key"></a>產生 Secret Key</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> secrets</span><br><span class="line">secrets.token_hex(<span class="number">16</span>)</span><br></pre></td></tr></table></figure>
     </div>
 

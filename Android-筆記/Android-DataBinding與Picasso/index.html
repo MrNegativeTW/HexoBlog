@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.3.0">
+<meta name="generator" content="Hexo 5.4.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
@@ -174,7 +174,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">50</span>
+          <span class="site-state-item-count">51</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -277,17 +277,24 @@
     
     <div class="post-body" itemprop="articleBody">
         <p>找了很多教學都只有貼程式碼，沒看到比較詳細的流程說明，所以這篇就來說明一下流程吧。</p>
-<a id="more"></a>
+<span id="more"></span>
 <p>不廢話直接上 Code</p>
 <h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><h2 id="CustomViewModel"><a href="#CustomViewModel" class="headerlink" title="CustomViewModel"></a>CustomViewModel</h2><ol>
 <li>依照你的狀況照常設定變數</li>
 <li>Uri 為空時將變數設定為 <code>Uri.EMPTY</code><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> photoUrl = MutableLiveData&lt;Uri&gt;()</span><br><span class="line"></span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="keyword">if</span> (firebaseUser != <span class="literal">null</span>) &#123;</span><br><span class="line">    <span class="keyword">this</span>.photoUrl.value = firebaseUser.photoUrl</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.photoUrl.value = Uri.EMPTY</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
-<h2 id="ImageBindingAdapter"><a href="#ImageBindingAdapter" class="headerlink" title="ImageBindingAdapter"></a>ImageBindingAdapter</h2></li>
+
+</li>
+</ol>
+<h2 id="ImageBindingAdapter"><a href="#ImageBindingAdapter" class="headerlink" title="ImageBindingAdapter"></a>ImageBindingAdapter</h2><ol>
 <li>須為 object，非 class</li>
 <li>使用 <code>@JvmStatic</code> 及 <code>@BindingAdapter(&quot;&quot;)</code><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">object</span> ImageBindingAdapter &#123;</span><br><span class="line">    <span class="meta">@JvmStatic</span></span><br><span class="line">    <span class="meta">@BindingAdapter(<span class="meta-string">&quot;imageUrl&quot;</span>, <span class="meta-string">&quot;error&quot;</span>)</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">setImageUrl</span><span class="params">(view: <span class="type">ImageView</span>, url: <span class="type">Uri</span>, notSignedIn: <span class="type">Drawable</span>)</span></span> &#123;</span><br><span class="line">        Picasso.<span class="keyword">get</span>()</span><br><span class="line">                .load(url)</span><br><span class="line">                .error(notSignedIn)</span><br><span class="line">                .into(view)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="fragment-xml"><a href="#fragment-xml" class="headerlink" title="fragment.xml"></a>fragment.xml</h2></li>
+
+</li>
+</ol>
+<h2 id="fragment-xml"><a href="#fragment-xml" class="headerlink" title="fragment.xml"></a>fragment.xml</h2><ol>
 <li><code>&lt;data&gt;</code> 標籤中僅需 ViewModel 即可，不用 <code>ImageBindingAdapter</code></li>
 <li>使用 <code>app:CUSTOM_ATTR_HERE</code> 來使用自訂的 Setter<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ImageView</span></span></span><br><span class="line"><span class="tag">    <span class="attr">...</span></span></span><br><span class="line"><span class="tag">    <span class="attr">app:imageUrl</span>=<span class="string">&quot;@&#123;viewModel.photoUrl&#125;&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">app:error</span>=<span class="string">&quot;@&#123;@drawable/ic_launcher&#125;&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 
 </li>
 </ol>

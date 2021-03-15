@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.3.0">
+<meta name="generator" content="Hexo 5.4.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
@@ -174,7 +174,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">50</span>
+          <span class="site-state-item-count">51</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -277,38 +277,48 @@
     
     <div class="post-body" itemprop="articleBody">
         <p>Gitea 說明文件實在是寫得不太好，弄了一小段時間才成功裝上 Raspberry Pi。</p>
-<a id="more"></a>
+<span id="more"></span>
 <p>中文版文件爛，英文也不是很好，自己 try and error 比較實在。</p>
 <h1 id="下載-Gitea"><a href="#下載-Gitea" class="headerlink" title="下載 Gitea"></a>下載 Gitea</h1><p>本教學使用 <a target="_blank" rel="noopener" href="https://docs.gitea.io/en-us/install-from-binary/">執行檔安裝</a>，直接前往 <a target="_blank" rel="noopener" href="https://dl.gitea.io/gitea/">下載頁面</a> 找到適合自己平台的。</p>
 <p>因樹莓派平台比較特殊，而且這塊樹莓派是 arm-v7 的版本，所以我試了幾個版本才找到能用的。</p>
 <ol>
 <li><p>開 Treminal，下載 <code>arm-6</code> 版本的執行檔，並重命名為 <code>gitea</code>，本文撰寫時為 <code>1.12.4</code> 版。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -O gitea https:&#x2F;&#x2F;dl.gitea.io&#x2F;gitea&#x2F;1.12.4&#x2F;gitea-1.12.4-linux-arm-6</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -O gitea https:&#x2F;&#x2F;dl.gitea.io&#x2F;gitea&#x2F;1.12.4&#x2F;gitea-1.12.4-linux-arm-6</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>給權限</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x gitea</span><br></pre></td></tr></table></figure>
-<h1 id="安裝-MySQL"><a href="#安裝-MySQL" class="headerlink" title="安裝 MySQL"></a>安裝 MySQL</h1><p>Gitea 還需要 SQL 才能正常運作，所以就裝個很常見的 MySQL 給他用，然後因為都是在本機端執行，所以可以略過官方說明文件說的一大堆步驟。</p>
+
 </li>
+</ol>
+<h1 id="安裝-MySQL"><a href="#安裝-MySQL" class="headerlink" title="安裝 MySQL"></a>安裝 MySQL</h1><p>Gitea 還需要 SQL 才能正常運作，所以就裝個很常見的 MySQL 給他用，然後因為都是在本機端執行，所以可以略過官方說明文件說的一大堆步驟。</p>
+<ol>
 <li><p>開 Terminal，更新 apt 後裝個 MySQL</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install mariadb-server</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install mariadb-server</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>進入 SQL 的主控台看看，預設密碼為樹莓派的登入密碼。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mysql -u root -p</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mysql -u root -p</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>建立一個使用者給 gitea 用</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> <span class="string">&#x27;gitea&#x27;</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">&#x27;gitea&#x27;</span>;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> <span class="string">&#x27;gitea&#x27;</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">&#x27;gitea&#x27;</span>;</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>開一個 <code>giteadb</code> 資料庫給 gitea 用</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> giteadb <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> <span class="string">&#x27;utf8mb4&#x27;</span> <span class="keyword">COLLATE</span> <span class="string">&#x27;utf8mb4_unicode_ci&#x27;</span>;</span><br></pre></td></tr></table></figure>
 <p>需要注意的是說明文件提到：用 <code>utf8mb4</code> 以便支援奇怪的東西</p>
 </li>
 <li><p>權限全開</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">PRIVILEGES</span> <span class="keyword">ON</span> giteadb.* <span class="keyword">TO</span> <span class="string">&#x27;gitea&#x27;</span>;</span><br><span class="line"><span class="keyword">FLUSH</span> <span class="keyword">PRIVILEGES</span>;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">PRIVILEGES</span> <span class="keyword">ON</span> giteadb.* <span class="keyword">TO</span> <span class="string">&#x27;gitea&#x27;</span>;</span><br><span class="line"><span class="keyword">FLUSH</span> <span class="keyword">PRIVILEGES</span>;</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>離開</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exit;</span><br></pre></td></tr></table></figure>
-<h1 id="安裝-Gitea"><a href="#安裝-Gitea" class="headerlink" title="安裝 Gitea"></a>安裝 Gitea</h1><p>進入前面下載 gitea 所在的資料夾讓他跑起來</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;gitea web</span><br></pre></td></tr></table></figure>
-<div class="note info"><p>如果你有裝 ufw 這類的防火牆，記得將 3000 port 加入允許名單<br>以 ufw 來說，指令為：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw allow 3000</span><br></pre></td></tr></table></figure></div>
 
 </li>
 </ol>
+<h1 id="安裝-Gitea"><a href="#安裝-Gitea" class="headerlink" title="安裝 Gitea"></a>安裝 Gitea</h1><p>進入前面下載 gitea 所在的資料夾讓他跑起來</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;gitea web</span><br></pre></td></tr></table></figure>
+
+<div class="note info"><p>如果你有裝 ufw 這類的防火牆，記得將 3000 port 加入允許名單<br>以 ufw 來說，指令為：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw allow 3000</span><br></pre></td></tr></table></figure></div>
+
 <p>接著就可以使用 Web GUI 進行設定了，設定時需注意將資料庫名稱改為上述設定ㄉ的 <code>giteadb</code>，不然會噴錯說沒權限。</p>
 
     </div>

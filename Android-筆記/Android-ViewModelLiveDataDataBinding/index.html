@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.3.0">
+<meta name="generator" content="Hexo 5.4.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
@@ -176,7 +176,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">50</span>
+          <span class="site-state-item-count">51</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -279,18 +279,23 @@
     
     <div class="post-body" itemprop="articleBody">
         <p>很亂嗎？沒關係，把它們混起來做撒尿牛丸吧。</p>
-<a id="more"></a>
+<span id="more"></span>
 <p>本文章使用 <code>UserFragment</code> 和 <code>UserViewModel</code> 作為範例。</p>
 <h1 id="ViewModel"><a href="#ViewModel" class="headerlink" title="ViewModel"></a>ViewModel</h1><p>如何新增 ViewModel 呢？手動太麻煩了，直接右鍵 New 一個 Activity/Fragment with ViewModel，讓 Android Studio 幫我們建立 <code>Fragment</code> 和他的 <code>ViewModel</code> 吧。<br>建立完成之後需要修改一些已經被棄用的東西，進入 <code>Fragment</code> 將 <code>ViewModelProviders.of(this)</code> 改成 <code>ViewModelProvider(this)</code>，像這樣：</p>
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreate</span><span class="params">(savedInstanceState: <span class="type">Bundle</span>?)</span></span> &#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState)</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="keyword">val</span> userViewModel = ViewModelProvider(<span class="keyword">this</span>).<span class="keyword">get</span>(UserViewModel::<span class="keyword">class</span>.java)</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h1 id="Live-Data"><a href="#Live-Data" class="headerlink" title="Live Data"></a>Live Data</h1><p>進入剛建立的 UserViewModel，將數值使用 <code>MutableLiveData</code> 包起來。<br>關於 <code>LiveData</code> 和 <code>MutableLiveData</code> 的差異，請見：<a target="_blank" rel="noopener" href="https://stackoverflow.com/a/46814399/9412238">StackOverflow</a></p>
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserViewModel</span> : <span class="type">ViewModel</span></span>() &#123;</span><br><span class="line">    <span class="keyword">val</span> user = MutableLiveData&lt;String&gt;()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>然後就可以在 <code>Fragment</code> 裡面<strong>觀察</strong>這筆資料了。 </p>
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">userViewModel.user.observe(<span class="keyword">this</span>, Observer &#123;</span><br><span class="line">    textView.text = it?.name</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
 <h1 id="Data-Binding"><a href="#Data-Binding" class="headerlink" title="Data Binding"></a>Data Binding</h1><h2 id="啟用"><a href="#啟用" class="headerlink" title="啟用"></a>啟用</h2><p>在 build.gradle(Module: app) 中加入</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">apply plugin: &#39;kotlin-kapt&#39;</span><br><span class="line"></span><br><span class="line">android &#123;</span><br><span class="line">    &#x2F;&#x2F; ...</span><br><span class="line">    buildFeatures &#123;</span><br><span class="line">        dataBinding &#x3D; true</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h2 id="改寫-Layout"><a href="#改寫-Layout" class="headerlink" title="改寫 Layout"></a>改寫 Layout</h2><p>將現有 Layout 使用 <code>&lt;layout&gt;</code> 標籤包起來，並加入 <code>&lt;data&gt;</code> 標籤，如下所示：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">layout</span> <span class="attr">xmlns:android</span>=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:app</span>=<span class="string">&quot;http://schemas.android.com/apk/res-auto&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:tools</span>=<span class="string">&quot;http://schemas.android.com/tools&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">data</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">variable</span> </span></span><br><span class="line"><span class="tag">            <span class="attr">name</span>=<span class="string">&quot;user&quot;</span> </span></span><br><span class="line"><span class="tag">            <span class="attr">type</span>=<span class="string">&quot;com.example.User&quot;</span> /&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">data</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   // Original Layout</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">layout</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p><code>&lt;variable&gt;</code> 中的：</p>
 <ul>
 <li><code>name</code>：此 ViewModel 在此 Layout 中的別名</li>
@@ -305,11 +310,14 @@
 
 
 
+
 <h1 id="注意事項"><a href="#注意事項" class="headerlink" title="注意事項"></a>注意事項</h1><p>LiveData 和 DataBinding 擇一使用即可，也就是下列選一：</p>
 <ul>
 <li>在 Activity / Fragment 用 observe 更新 UI<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">viewModel.name.observe(<span class="keyword">this</span>, <span class="keyword">object</span> : Observer&lt;String&gt; &#123;</span><br><span class="line">            <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onChanged</span><span class="params">(name: <span class="type">String</span>)</span></span> &#123;</span><br><span class="line">                viewModel.updateName(name)</span><br><span class="line">            &#125;</span><br><span class="line">&#125;)```</span><br><span class="line"></span><br><span class="line">- 在 layout.xml 用 @&#123;&#125; 更新 UI</span><br><span class="line">```xml</span><br><span class="line">&lt;TextView </span><br><span class="line">    android:layout_width=<span class="string">&quot;wrap_content&quot;</span></span><br><span class="line">    android:layout_height=<span class="string">&quot;wrap_content&quot;</span></span><br><span class="line">    android:text=<span class="string">&quot;@&#123;user.firstName&#125;&quot;</span> /&gt;</span><br></pre></td></tr></table></figure>
-<h1 id="撒尿牛丸"><a href="#撒尿牛丸" class="headerlink" title="撒尿牛丸"></a>撒尿牛丸</h1>這三者都是屬於 <a target="_blank" rel="noopener" href="https://developer.android.com/jetpack">Android JetPack</a> 中的 Architecture，借張圖表示：<br><img data-src="https://raw.githubusercontent.com/android/sunflower/master/screenshots/jetpack_donut.png" alt="jetpack_donut"></li>
+
+</li>
 </ul>
+<h1 id="撒尿牛丸"><a href="#撒尿牛丸" class="headerlink" title="撒尿牛丸"></a>撒尿牛丸</h1><p>這三者都是屬於 <a target="_blank" rel="noopener" href="https://developer.android.com/jetpack">Android JetPack</a> 中的 Architecture，借張圖表示：<br><img data-src="https://raw.githubusercontent.com/android/sunflower/master/screenshots/jetpack_donut.png" alt="jetpack_donut"></p>
 <p>Android 官方有個 App 完美展現了 Jetpack 的應用：<br><strong><a target="_blank" rel="noopener" href="https://github.com/android">android</a></strong> / <strong><a target="_blank" rel="noopener" href="https://github.com/android/sunflower/">sunflower</a></strong></p>
 <h1 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h1><p>這篇文章只是寫個大概，如果要看詳細介紹的話可以到下面兩個連結逛逛：</p>
 <ul>

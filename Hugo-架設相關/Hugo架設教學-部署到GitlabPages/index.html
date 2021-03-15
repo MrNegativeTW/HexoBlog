@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.3.0">
+<meta name="generator" content="Hexo 5.4.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
@@ -177,7 +177,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">50</span>
+          <span class="site-state-item-count">51</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -286,12 +286,13 @@
     
     <div class="post-body" itemprop="articleBody">
         <p>這篇文章會教你如何把 Hugo 部署到 Gitlab Pages 上。</p>
-<a id="more"></a>
+<span id="more"></span>
 <p>Gitlab Pages 的基本建立就不說了。</p>
 <h1 id="首先"><a href="#首先" class="headerlink" title="首先"></a>首先</h1><p>Hugo 的靜態檔案會產生至 public 資料夾中，所以基本上不用做太多設定，把整個網站的資料夾加入 git 即可，不過基於某種原因，我的 Repoitory 沒有包含到整個站點資料夾，僅有必要部分。<br><img data-src="https://b80xhg.bn.files.1drv.com/y4mpZrNasWdYh4_fInzxP-LcKGyTqHkwlu3JRiz4brkz0_-F-KK3cigYle1zSAfilswFdJnQ__e_XRLngDcu6YNtzVbBypAOKWx1liflZWWl7PDkEnN0uWwwZxfu6_SqrRVHRuLUN_sxpTwRmrJ84e1XiUURZ-izt8cx01dojdoDO6FPhzYFFtFKjU0bQvstO4nL76ySUVoQiZ67zBP1gZRoQ"></p>
 <p>Gitlab Pages 還有個好處，它可以把整個 Project 設為 Private，但 Pages 設為 Public，這樣一來大家只能看到靜態內容，不用擔心整個 Project 曝光。</p>
 <h1 id="gitlab-ci-yml-設定"><a href="#gitlab-ci-yml-設定" class="headerlink" title=".gitlab-ci.yml 設定"></a>.gitlab-ci.yml 設定</h1><p>唯一需要設定的大概就是 CI/CD ，如下修改即可直接上線。</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># This file is a template, and might need editing before it works on your project.</span></span><br><span class="line"><span class="comment"># Full project: https://gitlab.com/pages/plain-html</span></span><br><span class="line"><span class="attr">pages:</span></span><br><span class="line">  <span class="attr">stage:</span> <span class="string">deploy</span></span><br><span class="line">  <span class="attr">script:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">echo</span> <span class="string">&#x27;Nothing to do...&#x27;</span></span><br><span class="line">  <span class="attr">artifacts:</span></span><br><span class="line">    <span class="attr">paths:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">public</span></span><br><span class="line">  <span class="attr">only:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+
 <h1 id="塔啦！"><a href="#塔啦！" class="headerlink" title="塔啦！"></a>塔啦！</h1><p>通過！上線！<br><img data-src="https://b82wqq.bn.files.1drv.com/y4ms6t6AEF9BtQkMl1V4VsvPhoX34U3wkDnLve0dBeD0KoHo00-RnW28W1awQdCM2_k24tXUnt7M_hWepdESCoOkBWGISLDTSZWxVg8I6mc1RsBV3qnkqoGA8urZ8s_Y0WKJxEv9c6mstgs0Xn7SKaOdeRQo5Hxhs6gdjam9ZaqkOBZjIhyRE9uarkhgFIIwR4j2yS3zjpFjkfjbtJ4zX0_ig"></p>
 
     </div>

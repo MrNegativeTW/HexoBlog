@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.3.0">
+<meta name="generator" content="Hexo 5.4.0">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
@@ -174,7 +174,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">50</span>
+          <span class="site-state-item-count">51</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -283,13 +283,14 @@
     
     <div class="post-body" itemprop="articleBody">
         <p>這篇文章會教你如何把 Hugo 從無到有架設起來。</p>
-<a id="more"></a>
+<span id="more"></span>
 <h1 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h1><h2 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h2><div class="note info"><p>本篇文章 Windows 部分皆使用 PowerShell 操作。</p>
 </div>
 
 <p>Windows 下分為「使用套件包管理員」及「手動下載 Release」兩種安裝方式，本文使用套件包管理員的安裝方式，省事快速方便。</p>
 <p>首先安裝 Chocolatey：<a target="_blank" rel="noopener" href="https://chocolatey.org/install#individual">官網</a><br>基本上就是用<strong>管理員</strong>權限打開 PowerShell 並輸入</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol &#x3D; [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString(&#39;https:&#x2F;&#x2F;chocolatey.org&#x2F;install.ps1&#39;))</span><br></pre></td></tr></table></figure>
+
 <p>安裝完成後重新開啟 PowerShell 並輸入</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">choco install hugo -confirm</span><br></pre></td></tr></table></figure>
 <p>安裝完成後一樣重啟 PowerShell 即可使用 <code>hugo</code> 指令確認安裝是否成功。</p>
@@ -303,8 +304,10 @@
 
 <p>找到主題後可以使用如下 git 指令將主題安裝進來，或者照主題說明檔安裝。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;cowboysmall-tools&#x2F;hugo-devresume-theme.git themes&#x2F;devresume</span><br></pre></td></tr></table></figure>
+
 <h2 id="基本設定"><a href="#基本設定" class="headerlink" title="基本設定"></a>基本設定</h2><p>使用編輯器開啟網站根目錄的 <code>config.tmol</code><br>前三行修改為自己的設定，再外加一項 <code>theme</code> 指定使用的主題<br>主題名稱為稍早的 git 指令第四項參數(<code>themes/devresume</code>) 的資料夾名稱 </p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">baseURL</span> <span class="string">=</span> <span class="string">&quot;https://covid19resume.gitlab.io/&quot;</span></span><br><span class="line"><span class="string">languageCode</span> <span class="string">=</span> <span class="string">&quot;en-us&quot;</span></span><br><span class="line"><span class="string">title</span> <span class="string">=</span> <span class="string">&quot;武漢肺炎簡歷&quot;</span></span><br><span class="line"><span class="string">theme</span> <span class="string">=</span> <span class="string">&quot;devresume&quot;</span></span><br></pre></td></tr></table></figure>
+
 
 <p>最後輸入 <code>hugo server</code> 即可在本地端 <code>localhost:1313</code> 預覽網站的樣貌了，而且每當存檔，網頁都會自己重新整理！超好用！</p>
 <h1 id="產生內容"><a href="#產生內容" class="headerlink" title="產生內容"></a>產生內容</h1><p>於網站根目錄輸入 <code>hugo</code> 即可產生靜態內容，並依據個人所需找地方部署囉！</p>
